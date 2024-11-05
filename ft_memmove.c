@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/05 16:50:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/05 14:36:36 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/05 14:48:24 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c);
-void	*ft_memset(void *pointer, int val, unsigned int n);
-void	ft_bzero(void *pointer, unsigned int n);
-void	*ft_memcpy(void *dest, const void *src, unsigned int n);
-void	*ft_memmove(void *dest, const void *src, unsigned int n);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strrchr(const char *s, int c);
+void	*ft_memmove(void *dest, const void *src, unsigned int n)
+{
+	unsigned int	i;
+
+	if (dest < src) 
+	{
+		i = 0;
+		while (i < n)
+		{
+			*(char *)(dest + i) = *(char *)(src + i);
+			i++;
+		}
+	}
+	else
+	{
+		while (n > 0)
+		{
+			*(char *)(dest + n - 1) = *(char *)(src + n - 1);
+			n--;
+		}
+	}
+	return (dest);
+}

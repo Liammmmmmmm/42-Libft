@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/05 16:50:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/05 15:00:56 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/05 15:08:24 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c);
-void	*ft_memset(void *pointer, int val, unsigned int n);
-void	ft_bzero(void *pointer, unsigned int n);
-void	*ft_memcpy(void *dest, const void *src, unsigned int n);
-void	*ft_memmove(void *dest, const void *src, unsigned int n);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strrchr(const char *s, int c);
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	res;
+
+	i = 0;
+	res = 0;
+	while (src[i] != '\0' && i < (size - 1))
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (src[res] != '\0')
+		res++;
+	if (size < 0)
+		dest[i] = '\0';
+	return (res);
+}
+
+// FONCTIONNE PAS, KO MOULINETTE
