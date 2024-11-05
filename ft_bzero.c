@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 11:57:40 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/05 11:57:46 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/05 13:58:24 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/05 14:01:34 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+void	ft_bzero(void *pointer, unsigned int n)
 {
-	return (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		|| (c >= '0' && c <= '9'));
+	unsigned int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		*((char *)pointer + i) = 0;
+		i++;
+	}
 }

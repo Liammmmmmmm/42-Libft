@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lilefebv <lilefebv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:18:37 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/04 15:52:31 by lilefebv         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:03:22 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctype.h>
-#include <stdio.h> 
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 #include "libft.h"
 
 void	success(char *str)
@@ -44,5 +46,25 @@ int	main(void)
 	}
 	if (pass)
 		success("isalpha");
+	printf("----------------------\n");
+
+
+	printf("---- Test memset ----\n");
+	char memset1[] = "Ceci est un test\0";
+	void *memsetres1 = memset(memset1 + 2, 'd', 5);
+	printf("  OG res : %s, new char : %s\n", (char *)memsetres1, memset1);
+	char memset2[] = "Ceci est un test\0";
+	void *memsetres2 = memset(memset2 + 2, 'd', 5);
+	printf("Test res : %s, new char : %s\n", (char *)memsetres2, memset2);
+	printf("----------------------\n");
+
+
+	printf("---- Test bzero ----\n");
+	char memset1[] = "Ceci est un test\0";
+	void *memsetres1 = memset(memset1 + 2, 'd', 5);
+	printf("  OG res : %s, new char : %s\n", (char *)memsetres1, memset1);
+	char memset2[] = "Ceci est un test\0";
+	void *memsetres2 = memset(memset2 + 2, 'd', 5);
+	printf("Test res : %s, new char : %s\n", (char *)memsetres2, memset2);
 	printf("----------------------\n");
 }

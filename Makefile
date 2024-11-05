@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lilefebv <lilefebv@student.42.fr>          +#+  +:+       +#+         #
+#    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2024/11/04 14:52:47 by lilefebv         ###   ########.fr        #
+#    Updated: 2024/11/05 13:43:19 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS = -Wall -Wextra -Werror
 CC    = cc
-LISTC = ft_isalpha.c
+LISTC = ft_isalpha.c ft_memset.c
 LISTO = $(LISTC:.c=.o)
 
 %.o : %.c

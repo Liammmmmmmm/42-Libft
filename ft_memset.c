@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 11:57:40 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/05 11:57:46 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/05 12:06:36 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/05 13:59:42 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+void	*ft_memset(void *pointer, int val, unsigned int n)
 {
-	return (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		|| (c >= '0' && c <= '9'));
+	unsigned int	i;
+
+	i = 0;
+	while (i < n)
+	{
+		*((char *)pointer + i) = val;
+		i++;
+	}
+	return (pointer);
 }
