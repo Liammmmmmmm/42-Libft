@@ -10,23 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	res;
 
 	i = 0;
 	res = 0;
-	while (src[i] != '\0' && i < (size - 1))
+	while (src[res])
+		res++;
+	if (size == 0)
+    	return (res);
+	while (src[i] && i < (size - 1))
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	while (src[res] != '\0')
-		res++;
-	if (size < 0)
+	if (size > 0)
 		dest[i] = '\0';
 	return (res);
 }
-
-// FONCTIONNE PAS, KO MOULINETTE
