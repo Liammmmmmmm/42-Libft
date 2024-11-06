@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 14:36:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/06 18:08:23 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/06 17:57:46 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/06 18:11:15 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
+int	atoi(const char *str)
 {
-	unsigned int	i;
+	int	i;
+	int	sign;
+	int	res;
 
-	if (dest < src) 
+	i = 0;
+	sign = 1;
+	res = 0;
+	while (str[i] >= 9 && str[i] <= 13 || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		i = 0;
-		while (i < n)
-		{
-			*(char *)(dest + i) = *(char *)(src + i);
-			i++;
-		}
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	else
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		while (n > 0)
-		{
-			*(char *)(dest + n - 1) = *(char *)(src + n - 1);
-			n--;
-		}
+		res = 10 * res + str[i] - '0';
+		i++;
 	}
-	return (dest);
+	return (res * sign);
 }

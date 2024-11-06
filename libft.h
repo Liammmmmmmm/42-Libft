@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/06 17:51:12 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/06 18:34:24 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ void	*ft_memcpy(void *dest, const void *src, unsigned int n);
 void	*ft_memmove(void *dest, const void *src, unsigned int n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size);
+
 
 #endif

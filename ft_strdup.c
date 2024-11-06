@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 14:36:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/06 18:08:23 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/06 18:29:48 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/06 18:34:51 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
-{
-	unsigned int	i;
+#include "libft.h"
 
-	if (dest < src) 
-	{
-		i = 0;
-		while (i < n)
-		{
-			*(char *)(dest + i) = *(char *)(src + i);
-			i++;
-		}
-	}
-	else
-	{
-		while (n > 0)
-		{
-			*(char *)(dest + n - 1) = *(char *)(src + n - 1);
-			n--;
-		}
-	}
-	return (dest);
+char	*strdup(const char *str)
+{
+	int		len;
+	char	*res;
+
+	len = ft_strlen(str);
+	res = malloc(len + 1);
+	if (!res)
+		return (NULL);
+	ft_strlcpy(res, str, len + 1);
+	return (res);
 }
