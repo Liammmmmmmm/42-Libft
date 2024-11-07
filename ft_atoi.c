@@ -6,11 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:57:46 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/06 18:11:15 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/07 09:49:37 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;
