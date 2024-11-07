@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:15:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 17:13:03 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/07 17:36:49 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,29 @@ static char	*ft_strdup_limited(const char *str, size_t max)
 	return (res);
 }
 
+static char	**init_variables(int *i, int *temp, size_t *count, size_t word_c)
+{
+	char	**tab;
+
+	tab = malloc(sizeof(char *) * (word_c + 1));
+	if (!tab)
+		return (NULL);
+	*i = -1;
+	*temp = -1;
+	*count = 0;
+	return (tab);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	size_t	word_count;
 	size_t	count;
 	char	**tab;
 	int		i;
 	int		temp;
 
-	word_count = ft_count_words(s, c);
-	tab = malloc(sizeof(char *) * (word_count + 1));
+	tab = init_variables(&i, &temp, &count, ft_count_words(s, c));
 	if (!tab)
 		return (NULL);
-	i = -1;
-	temp = -1;
-	count = 0;
 	while (s[++i])
 	{
 		if (s[i] != c && temp == -1)
