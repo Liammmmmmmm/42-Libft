@@ -6,11 +6,13 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:41:02 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/05 12:00:17 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/07 11:47:49 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlen(const char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 

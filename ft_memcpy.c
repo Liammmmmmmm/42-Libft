@@ -6,14 +6,18 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:14:30 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/05 14:31:18 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/07 15:18:32 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
-{
-	unsigned int	i;
+#include "libft.h"
 
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	size_t	i;
+
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	i = 0;
 	while (i < n)
 	{

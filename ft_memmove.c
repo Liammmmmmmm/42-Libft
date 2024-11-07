@@ -6,15 +6,19 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:36:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/06 18:08:23 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/07 15:33:41 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
-{
-	unsigned int	i;
+#include "libft.h"
 
-	if (dest < src) 
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	size_t	i;
+
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	if (dest < src)
 	{
 		i = 0;
 		while (i < n)

@@ -6,13 +6,15 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:54:52 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/06 14:54:55 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/07 11:47:26 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-void *ft_memchr(const void *s, int c, unsigned int n)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)

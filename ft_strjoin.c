@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:00:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 10:09:26 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/07 13:56:03 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	new_str = malloc(s1_len + s2_len + 1);
+	new_str = malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (!new_str)
 		return (NULL);
 	ft_strlcpy(new_str, s1, s1_len + 1);

@@ -6,21 +6,23 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:00:56 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/05 15:08:24 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/07 11:47:47 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	res;
+	size_t	i;
+	size_t	res;
 
 	i = 0;
 	res = 0;
 	while (src[res])
 		res++;
 	if (size == 0)
-    	return (res);
+		return (res);
 	while (src[i] && i < (size - 1))
 	{
 		dest[i] = src[i];
