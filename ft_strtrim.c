@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 18:29:48 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 11:24:00 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/07 10:10:17 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/07 10:30:49 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+int	ft_is_char_in_set(char c, char *set)
 {
-	int		len;
-	char	*res;
-
-	len = ft_strlen(str);
-	res = malloc(sizeof(char) * (len + 1));
-	if (!res)
-		return (NULL);
-	ft_strlcpy(res, str, len + 1);
-	return (res);
+	size_t	i;
+	
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	i;
+	size_t	new_size;
+	char	*new_str;
+
+	i = 0;
+	while (s1[i])
+	{
+		if (ft_is_char_in_set(s1[i], set) == 0)
+			new_size++;
+		i++;
+	}
+	new_size++;
+	new_str = malloc(sizeof(char) * new_size);
+}

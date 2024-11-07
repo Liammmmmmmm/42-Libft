@@ -6,13 +6,13 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:31:38 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/06 17:53:37 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/07 09:50:01 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strnstr(const char *big, const char *little, unsigned int len)
+char	*ft_strnstr(const char *big, const char *little, unsigned int len)
 {
 	int	pos;
 	int	i;
