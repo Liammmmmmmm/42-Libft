@@ -6,13 +6,13 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:10:17 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 14:36:45 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/08 12:30:09 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_is_char_in_set(char c, const char *set)
+static int	ft_is_char_in_set(char c, const char *set)
 {
 	size_t	i;
 

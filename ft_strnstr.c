@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 15:31:38 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 13:38:13 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/08 12:22:24 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (pos < len && pos < big_len)
 	{
 		if (pos + little_len > big_len || pos + little_len > len)
-			return (NULL);
+			return (((void *)0));
 		if (ft_strncmp(big, little, little_len) == 0)
 			return ((char *)big);
 		pos++;
 		big++;
 	}
-	return (NULL);
+	return (((void *)0));
 }

@@ -6,11 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:28:22 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 11:32:11 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/08 12:20:50 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {

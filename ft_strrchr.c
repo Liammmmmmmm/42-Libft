@@ -6,11 +6,9 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:51:59 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 14:51:58 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/08 12:22:44 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -22,7 +20,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (*(s + i) != (unsigned char)c)
 	{
 		if (i == 0)
-			return (NULL);
+			return (((void *)0));
 		i--;
 	}
 	return ((char *)s + i);

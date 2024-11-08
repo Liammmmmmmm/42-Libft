@@ -6,11 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:15:49 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 15:30:32 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/08 12:19:05 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	*ft_calloc(size_t number, size_t size)
 {

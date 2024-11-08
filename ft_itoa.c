@@ -6,13 +6,13 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:40:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 10:44:15 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/08 12:27:22 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_get_n_size(int n)
+static int	ft_get_n_size(int n)
 {
 	int	nsize;
 

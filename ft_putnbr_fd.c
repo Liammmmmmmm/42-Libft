@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 15:00:56 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 12:29:41 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/08 11:50:39 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/08 12:20:55 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-	size_t	res;
-
-	i = 0;
-	res = 0;
-	while (src[res])
-		res++;
-	if (size == 0)
-		return (res);
-	while (src[i] && i < (size - 1))
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		dest[i] = src[i];
-		i++;
+		n = -n;
+		write(fd, "-", 1);
 	}
-	if (size > 0)
-		dest[i] = '\0';
-	return (res);
+	if (n <= 9)
+		write(fd, &"0123456789"[n], 1);
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		write(fd, &"0123456789"[n % 10], 1);
+	}
 }
