@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:15:49 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 12:19:05 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 16:59:55 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_calloc(size_t number, size_t size)
 	size_t	i;
 
 	total_size = number * size;
-	if (total_size / size != number)
+	if (size != 0 && total_size / size != number)
 		return (NULL);
 	buff = malloc(total_size);
 	if (!buff)

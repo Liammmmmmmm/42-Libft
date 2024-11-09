@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/09 16:38:53 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 16:41:22 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -545,8 +545,8 @@ void	ft_putstr_fd(char *s, int fd);
  */
 typedef struct s_list
 {
-	void			*content;  /** List content. */
-	struct s_list	*next;     /** Pointer to the next element. */
+	void			*content;	/** List content. */
+	struct s_list	*next;		/** Pointer to the next element. */
 }					t_list;
 
 /**

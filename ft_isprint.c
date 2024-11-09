@@ -6,14 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:36:51 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/09 14:53:55 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 16:48:44 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	unsigned char	uc;
-	
-	uc = (unsigned char)c;
-	return (uc >= 32 && uc <= 126);
+	return (c >= 32 && c <= 126);
 }

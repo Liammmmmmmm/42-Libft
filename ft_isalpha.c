@@ -6,14 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:35 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/09 14:53:35 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 16:48:20 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
-	unsigned char	uc;
-	
-	uc = (unsigned char)c;
-	return ((uc >= 'a' && uc <= 'z') || (uc >= 'A' && uc <= 'Z'));
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
