@@ -6,11 +6,14 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:22:25 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 11:35:36 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 14:53:42 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	return (c >= 0 && c <= 127);
+	unsigned char	uc;
+	
+	uc = (unsigned char)c;
+	return (uc >= 0 && uc <= 127);
 }

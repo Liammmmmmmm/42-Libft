@@ -6,12 +6,15 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:57:40 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 11:35:33 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 14:52:46 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalnum(int c)
 {
-	return (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		|| (c >= '0' && c <= '9'));
+	unsigned char	uc;
+	
+	uc = (unsigned char)c;
+	return (((uc >= 'a' && uc <= 'z') || (uc >= 'A' && uc <= 'Z'))
+		|| (uc >= '0' && uc <= '9'));
 }
