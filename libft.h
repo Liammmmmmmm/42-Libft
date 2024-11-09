@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/09 16:14:01 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 16:38:53 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -530,21 +530,134 @@ void	ft_putnbr_fd(int n, int fd);
  */
 void	ft_putstr_fd(char *s, int fd);
 
-
+/**
+ * @brief Structure representing an element of a linked list.
+ *
+ * The `t_list` structure is used to represent an element in a generic 
+ * linked list. Each element contains a pointer to data of type `void*` 
+ * and a pointer to the next element in the list.
+ *
+ * @param content A pointer to the content of the list element. The type
+ *                of the content is generic (`void*`), allowing storage 
+ *                of any type of data.
+ * @param next A pointer to the next element in the list. If the current 
+ *             element is the last one, this pointer is `NULL`.
+ */
 typedef struct s_list
 {
-	void			*content;
-	struct s_list	*next;
+	void			*content;  /** List content. */
+	struct s_list	*next;     /** Pointer to the next element. */
 }					t_list;
 
+/**
+ * @brief Creates a new list element.
+ * 
+ * This function allocates memory for a new list element, sets the `content`
+ * member to the provided value, and initializes the `next` pointer to NULL.
+ * 
+ * @param content The content to initialize the new list element with.
+ * 
+ * @return A pointer to the newly created list element. NULL if memory
+ *         allocation fails.
+ */
 t_list	*ft_lstnew(void *content);
+
+/**
+ * @brief Adds a new element to the front of the list.
+ * 
+ * This function adds the element `new` to the front of the list.
+ * 
+ * @param lst A pointer to the pointer to the first element in the list.
+ * @param new A pointer to the new element to be added to the list.
+ */
 void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/**
+ * @brief Counts the number of elements in the list.
+ * 
+ * This function traverses the list and counts the number of elements until
+ * it reaches the end.
+ * 
+ * @param lst The start of the list.
+ * 
+ * @return The number of elements in the list.
+ */
 int		ft_lstsize(t_list *lst);
+
+/**
+ * @brief Returns the last element in the list.
+ * 
+ * This function traverses the list until it reaches the last element.
+ * 
+ * @param lst Element of the list.
+ * 
+ * @return The last element in the list, or NULL if the list is empty.
+ */
 t_list	*ft_lstlast(t_list *lst);
+
+/**
+ * @brief Adds a new element to the end of the list.
+ * 
+ * This function adds the element `new` to the end of the list.
+ * 
+ * @param lst A pointer to the pointer to the first element in the list.
+ * @param new A pointer to the new element to be added to the list.
+ */
 void	ft_lstadd_back(t_list **lst, t_list *new);
+
+/**
+ * @brief Frees a single list element.
+ * 
+ * Frees the memory of the element passed as an argument using the 'del'
+ * function then with free(3). There memory of `next` must not be free.
+ * 
+ * @param lst The element to free.
+ * @param del A function pointer that deletes the content of the element.
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
+
+/**
+ * @brief Clears the entire list by freeing all elements.
+ *
+ * Deletes and frees the memory of the element passed in parameter, and all
+ * the elements that follow, to using `del` and free(3). Finally, the initial
+ * pointer must be set to NULL
+ * 
+ * @param lst A pointer to the pointer to the first element in the list.
+ * @param del A function pointer that deletes the content of each element.
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/**
+ * @brief Iterates over the list and applies a function to each element's
+ *        content.
+ *
+ * This function iterates through the entire list and applies the function
+ * `f` to the content of each element in the list.
+ * 
+ * @param lst A pointer to the first element in the list.
+ * @param f A function pointer to the function to apply to each element's
+ *          content.
+ */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/**
+ * @brief Iterates over the list and creates a new list by applying
+ *        a function to each element's content.
+ * 
+ * This function creates a new list by applying the function `f` to the
+ * content of each element in the original list. The `del` function is used
+ * with free if necessary during the creation of the new list.
+ * 
+ * @param lst A pointer to the first element in the list.
+ * @param f A function pointer to the function to apply to each element's
+ *          content.
+ * @param del A function pointer to the function used to delete the content
+ *            of an element if needed.
+ * 
+ * @return A pointer to the new list created by applying `f` to each
+ *         element's content, or NULL if memory allocation fails.
+ */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
