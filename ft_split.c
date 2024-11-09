@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:15:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/09 18:02:03 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 19:01:32 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char	**ft_split(char const *s, char c)
 	}
 	if (temp != -1)
 		tab[count++] = ft_substr(s, temp, i - temp);
-	if (!tab[count - 1])
+	if (!tab[count - 1] && ft_count_words(s, c) != 0)
 		return (ft_free_tab(tab, count - 1));
 	return (tab);
 }
