@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:15:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 12:29:00 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 15:48:39 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,6 @@ static char	**ft_free_tab(char **tab, size_t i)
 	return (NULL);
 }
 
-static char	*ft_strdup_limited(const char *str, size_t max)
-{
-	char	*res;
-
-	res = malloc(sizeof(char) * (max + 1));
-	if (!res)
-		return (NULL);
-	ft_strlcpy(res, str, max + 1);
-	return (res);
-}
-
 static char	**init_variables(int *i, int *temp, size_t *count, size_t word_c)
 {
 	char	**tab;
@@ -89,14 +78,14 @@ char	**ft_split(char const *s, char c)
 			temp = i;
 		else if (s[i] == c && temp != -1)
 		{
-			tab[count] = ft_strdup_limited(s + temp, i - temp);
+			tab[count] = ft_substr(s, temp, i - temp);
 			if (!tab[count++])
 				return (ft_free_tab(tab, count - 1));
 			temp = -1;
 		}
 	}
 	if (temp != -1)
-		tab[count++] = ft_strdup_limited(s + temp, i - temp);
+		tab[count++] = ft_substr(s, temp, i - temp);
 	tab[count] = NULL;
 	return (tab);
 }

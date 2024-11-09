@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/09 15:00:22 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/09 16:14:01 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,37 +191,344 @@ int		ft_isdigit(int c);
  */
 int		ft_isprint(int c);
 
-
-
-
+/**
+ * @brief Calculates the length of a string.
+ *
+ * The ft_strlen() function calculates the length of the string pointed to by
+ * s, excluding the terminating null byte ('\0').
+ *
+ * @param str A pointer to the string whose length is to be calculated.
+ * 
+ * @return The number of bytes in the string pointed to by str.
+ */
 size_t	ft_strlen(const char *str);
+
+/**
+ * @brief Applies a function to each character of a string with its index.
+ *
+ * The ft_striteri() function iterates over the string pointed to by s,
+ * applying the function f to each character of the string. The index of
+ * each character is passed as the first argument to the function f,
+ * and the character is passed by reference (as a pointer) so it can be
+ * modified if needed.
+ *
+ * @param s The string on which to iterate.
+ * @param f The function to apply to each character, which takes the index 
+ *          and the character (as a pointer) as arguments.
+ * 
+ * @return None. The function modifies the string in-place if needed.
+ */
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+/**
+ * @brief Applies a function to each character of a string and creates a new
+ *        string.
+ *
+ * The ft_strmapi() function applies the function f to each character of the
+ * string s, passing the index of each character as the first argument and the
+ * character itself as the second argument. A new string is created using
+ * malloc(), where each character is the result of applying f to the
+ * corresponding character in s.
+ *
+ * If the memory allocation fails, the function returns NULL.
+ *
+ * @param s The string on which to iterate.
+ * @param f The function to apply to each character, which takes the index 
+ *          and the character as arguments, and returns the modified character.
+ * 
+ * @return A new string with the modified characters, or NULL if memory
+ *         allocation fails.
+ */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/**
+ * @brief Appends a string to a destination buffer with size limitation.
+ *
+ * The ft_strlcat() function appends the null-terminated string src to the
+ * end of the null-terminated string dest. It appends at most size - 
+ * ft_strlen(dest) - 1 characters, ensuring the result is null-terminated.
+ * The total length of the string it tried to create (initial length of dest
+ * plus length of src) is returned.
+ *
+ * @param dest The destination buffer to append the string to.
+ * @param src The source string to append.
+ * @param size The size of the destination buffer, including space for the 
+ *             null terminator.
+ * 
+ * @return The total length of the string it tried to create (initial length
+ *         of dest plus length of src).
+ */
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
+
+/**
+ * @brief Copies a string to a destination buffer with size limitation.
+ *
+ * The ft_strlcpy() function copies up to size - 1 characters from the
+ * string src to dst, ensuring the result is null-terminated.
+ * The total length of the string it tried to create (the length of src) is
+ * returned.
+ *
+ * @param dest The destination buffer to copy the string to.
+ * @param src The source null-terminated string to copy.
+ * @param size The size of the destination buffer, including space for the
+ *             null terminator.
+ * 
+ * @return The total length of the string it tried to create (length of src).
+ */
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+
+/**
+ * @brief Duplicates a string by allocating memory for a copy.
+ *
+ * The ft_strdup() function allocates memory for a new string that is a
+ * duplicate of the string s. The new string is null-terminated. Memory is
+ * allocated using malloc(), and it can be freed using free().
+ *
+ * @param str The string to duplicate.
+ * 
+ * @return A pointer to the newly allocated duplicate string, or NULL if memory
+ *         allocation fails.
+ */
 char	*ft_strdup(const char *str);
+
+/**
+ * @brief Concatenates two strings into a new allocated string.
+ *
+ * The ft_strjoin() function concatenates the string s1 with the string s2,
+ * and returns a new string that contains the result. The memory for the new 
+ * string is allocated using malloc(), and it must be freed by the caller when
+ * no longer needed.
+ * 
+ * If there is insufficient memory available for allocation, the function will
+ * return NULL.
+ *
+ * @param s1 The first string to concatenate.
+ * @param s2 The second string to concatenate.
+ * 
+ * @return A new string containing the concatenation of s1 and s2, or NULL if
+ *         memory allocation fails.
+ */
 char	*ft_strjoin(char const *s1, char const *s2);
+
+/**
+ * @brief Splits a string into an array of substrings using a delimiter.
+ *
+ * The ft_split() function splits the string s into an array of substrings,
+ * separated by the delimiter character c. The resulting array of substrings
+ * is terminated by a NULL pointer.
+ * 
+ * The memory for the resulting array and substrings is allocated using 
+ * malloc().
+ * If memory allocation fails, the function will return NULL.
+ *
+ * @param s The string to split.
+ * @param c The delimiter character used to split the string.
+ * 
+ * @return A array of strings resulting from the split, or NULL if memory
+ *         allocation fails.
+ */
 char	**ft_split(char const *s, char c);
+
+/**
+ * @brief Trims characters from the beginning and end of a string.
+ *
+ * The ft_strtrim() function allocates memory and returns a new string which is
+ * a copy of the string s1, with all characters from the set 'set' removed from
+ * the beginning and end of the string. The characters in 'set' are not removed
+ * from the middle of the string.
+ *
+ * The memory for the new string is allocated using malloc(). If memory
+ * allocation fails, the function returns NULL.
+ *
+ * @param s1 The string to trim.
+ * @param set The set of characters to remove from the beginning and end of s1.
+ * 
+ * @return A new string with the specified characters removed from the
+ *         beginning and end of s1, or NULL if memory allocation fails.
+ */
 char	*ft_strtrim(char const *s1, char const *set);
+
+/**
+ * @brief Creates a substring from the given string, starting at a specified
+ *        index.
+ *
+ * This function allocates (using malloc) and returns a new string derived
+ * from the string 's'. The new string starts from the index 'start' and has
+ * a maximum length of 'len'. If the starting index is greater than the length
+ * of the string, an empty string is returned.
+ * If memory allocation fails, NULL is returned.
+ *
+ * @param s The string from which the new substring is created.
+ * @param start The starting index in the original string.
+ * @param len The maximum length of the new substring.
+ *
+ * @return A new string starting at 'start' with a length of up to 'len',
+ *         or NULL if allocation fails.
+ */
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+
+/**
+ * @brief Converts an integer to a string.
+ *
+ * Allocates memory (using malloc) and returns a string representing the
+ * integer 'n'. Negative numbers are handled correctly.
+ *
+ * @param n The integer to convert.
+ *
+ * @return A string representing the integer, or NULL if allocation fails.
+ */
 char	*ft_itoa(int n);
+
+/**
+ * @brief Locate the first occurrence of a character in a string.
+ *
+ * The ft_strchr() function returns a pointer to the first occurrence of
+ * the character 'c' in the string 's'.
+ *
+ * @param s The string to search in.
+ * @param c The character to locate (represented as an integer).
+ *
+ * @return A pointer to the first occurrence of 'c' in 's', or NULL if
+ * the character is not found.
+ */
 char	*ft_strchr(const char *s, int c);
+
+/**
+ * @brief Locate the last occurrence of a character in a string.
+ *
+ * The ft_strrchr() function returns a pointer to the last occurrence of
+ * the character 'c' in the string 's'.
+ *
+ * @param s The string to search in.
+ * @param c The character to locate (represented as an integer).
+ *
+ * @return A pointer to the last occurrence of 'c' in 's', or NULL if the
+ *         character is not found.
+ */
 char	*ft_strrchr(const char *s, int c);
+
+/**
+ * @brief Compare two strings up to a specified number of characters.
+ *
+ * The ft_strncmp() function compares at most 'n' bytes of the strings 's1' 
+ * and 's2', stopping at the null terminator if encountered before reaching 'n'
+ * bytes. The comparison is done using unsigned char values.
+ *
+ * @param s1 The first string to compare.
+ * @param s2 The second string to compare.
+ * @param n The maximum number of bytes to compare.
+ *
+ * @return An integer less than, equal to, or greater than 0, indicating
+ *         whether 's1' is less than, equal to, or greater than 's2'. 
+ *         If the strings are equal up to 'n' characters, 0 is returned.
+ */
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+
+/**
+ * @brief Locate the first occurrence of a substring within a string, 
+ *        searching up to a specified length.
+ *
+ * The ft_strnstr() function finds the first occurrence of the string 'little' 
+ * within the string 'big', but only searches up to 'len' characters. 
+ * Characters that appear after	a `\0' character are not  searched. 
+ *
+ * @param big The string in which to search.
+ * @param little The substring to search for.
+ * @param len The maximum number of characters to search.
+ *
+ * @return A pointer to the first character of the first occurrence of 'little' 
+ *         within 'big'. If 'little' is an empty string, 'big' is returned. 
+ *         If 'little' is not found, NULL is returned.
+ */
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 
+/**
+ * @brief Convert a given character to its lowercase equivalent.
+ *
+ * The ft_tolower() function takes an integer 'c' and returns the 
+ * corresponding lowercase character if 'c' is an uppercase letter. 
+ * Otherwise, it returns the character unchanged.
+ *
+ * @param c The character to convert.
+ * 
+ * @return The lowercase equivalent of 'c' if 'c' is an uppercase letter,
+ *         otherwise, returns 'c' unchanged.
+ */
 int		ft_tolower(int c);
+
+/**
+ * @brief Convert a given character to its uppercase equivalent.
+ *
+ * The ft_toupper() function takes an integer 'c' and returns the 
+ * corresponding uppercase character if 'c' is a lowercase letter. 
+ * Otherwise, it returns the character unchanged.
+ *
+ * @param c The character to convert.
+ * 
+ * @return The uppercase equivalent of 'c' if 'c' is a lowercase letter,
+ *         otherwise, returns 'c' unchanged.
+ */
 int		ft_toupper(int c);
+
+/**
+ * @brief Convert a string to an integer.
+ *
+ * The ft_atoi() function converts the initial portion of the string 
+ * pointed to by 'str' to an integer. The function skips any leading 
+ * whitespace characters and processes any digits until a non-digit 
+ * character is encountered.
+ *
+ * @param str The string to convert.
+ * 
+ * @return The converted integer value or 0 if no valid conversion is
+ *         possible.
+ */
 int		ft_atoi(const char *str);
 
-
+/**
+ * @brief Write a character to a file descriptor.
+ *
+ * The ft_putchar_fd() function writes the character 'c' to the file 
+ * descriptor 'fd'. It uses write() to output the character.
+ *
+ * @param c The character to write.
+ * @param fd The file descriptor where the character will be written.
+ */
 void	ft_putchar_fd(char c, int fd);
+
+/**
+ * @brief Write a string followed by a newline to a file descriptor.
+ *
+ * The ft_putendl_fd() function writes the string 's' followed by a newline
+ * character to the file descriptor 'fd'. It uses write().
+ *
+ * @param s The string to write.
+ * @param fd The file descriptor where the string will be written.
+ */
 void	ft_putendl_fd(char *s, int fd);
+
+/**
+ * @brief Write an integer to a file descriptor.
+ *
+ * The ft_putnbr_fd() function writes the integer 'n' to the file 
+ * descriptor 'fd'. It uses write() to output the integer as a string
+ * representation.
+ *
+ * @param n The integer to write.
+ * @param fd The file descriptor where the integer will be written.
+ */
 void	ft_putnbr_fd(int n, int fd);
+
+/**
+ * @brief Write a string to a file descriptor.
+ *
+ * The ft_putstr_fd() function writes the string 's' to the file 
+ * descriptor 'fd'. It outputs the string using write().
+ *
+ * @param s The string to write.
+ * @param fd The file descriptor where the string will be written.
+ */
 void	ft_putstr_fd(char *s, int fd);
-
-
-
 
 
 typedef struct s_list
