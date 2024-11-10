@@ -6,13 +6,15 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:20:51 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 11:24:50 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/10 15:13:08 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

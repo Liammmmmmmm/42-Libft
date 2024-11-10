@@ -6,15 +6,17 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:57:46 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/07 11:38:39 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/10 15:01:20 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	res;
+	size_t				i;
+	int					sign;
+	unsigned long long	res;
 
 	i = 0;
 	sign = 1;
@@ -29,8 +31,12 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (sign == 1 && res > 10 * res + str[i] - '0')
+			return (-1);
+		else if (sign == -1 && res > 10 * res + str[i] - '0')
+			return (0);
 		res = 10 * res + str[i] - '0';
 		i++;
 	}
-	return (res * sign);
+	return ((int)res * sign);
 }

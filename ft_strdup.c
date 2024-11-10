@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 18:29:48 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 12:29:29 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/10 15:12:39 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strdup(const char *str)
 {
-	int		len;
+	size_t	len;
 	char	*res;
 
 	len = ft_strlen(str);

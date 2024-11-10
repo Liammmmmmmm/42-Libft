@@ -6,15 +6,15 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:40:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 12:27:22 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/10 15:04:53 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_get_n_size(int n)
+static size_t	ft_get_n_size(int n)
 {
-	int	nsize;
+	size_t	nsize;
 
 	if (n == 0)
 		return (1);
@@ -35,8 +35,8 @@ static int	ft_get_n_size(int n)
 char	*ft_itoa(int n)
 {
 	char	*res;
-	int		size;
-	int		i;
+	size_t	size;
+	size_t	i;
 
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
