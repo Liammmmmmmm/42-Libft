@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2024/11/10 15:32:18 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/11/10 15:36:46 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,14 +17,14 @@ LISTC      = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isasc
 LISTO      = $(LISTC:.c=.o)
 LISTCBONUS = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 LISTOBONUS = $(LISTCBONUS:.c=.o)
+HEADER     = libft.h
 
-
-%.o : %.c
+%.o : %.c $(HEADER)
 	$(CC) $(FLAGS) -o $@ -c $<
 
 all : $(NAME)
 
-$(NAME) : $(LISTO) libft.h
+$(NAME) : $(LISTO)
 	ar -rsc $@ $?
 
 clean :
@@ -37,7 +37,7 @@ re : fclean all
 
 bonus : $(NAME) $(LISTOBONUS) .bonus
 
-.bonus: $(LISTOBONUS) libft.h
+.bonus: $(LISTOBONUS)
 	ar -rcs $(NAME) $?
 	@touch .bonus
 
