@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2024/11/08 17:26:14 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/11/10 13:43:28 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,17 @@ $(NAME) : $(LISTO)
 	ar -rsc $@ $?
 
 clean :
-	rm -f $(LISTO) $(LISTOBONUS)
+	rm -f $(LISTO) $(LISTOBONUS) .bonus
 
 fclean : clean
 	rm -f libft.a
 
 re : fclean all
 
-bonus : $(LISTO) $(LISTOBONUS)
-	ar -rsc $(NAME) $?
+bonus : $(NAME) $(LISTOBONUS) .bonus
+
+.bonus: $(LISTOBONUS)
+	ar -rcs $(NAME) $?
+	@touch .bonus
 
 .PHONY: all clean fclean re bonus
