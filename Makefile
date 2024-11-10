@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2024/11/10 13:43:28 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/11/10 15:32:18 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LISTOBONUS = $(LISTCBONUS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(LISTO)
+$(NAME) : $(LISTO) libft.h
 	ar -rsc $@ $?
 
 clean :
@@ -37,7 +37,7 @@ re : fclean all
 
 bonus : $(NAME) $(LISTOBONUS) .bonus
 
-.bonus: $(LISTOBONUS)
+.bonus: $(LISTOBONUS) libft.h
 	ar -rcs $(NAME) $?
 	@touch .bonus
 
