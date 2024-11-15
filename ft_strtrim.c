@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:10:17 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 12:30:09 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/15 14:08:41 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	ft_is_char_in_set(char c, const char *set)
 {
 	size_t	i;
 
+	if (!set)
+		return (0);
 	i = 0;
 	while (set[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:26:06 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/09 18:53:11 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/15 14:10:35 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static t_list	*ft_clear_all(t_list *newlist, void (*del)(void *), void *newc)
 	return (NULL);
 }
 
-t_list	*ft_create_node(t_list *lst, void *(*f)(void *), void (*del)(void *))
+static t_list	*new_node(t_list *l, void *(*f)(void *), void (*del)(void *))
 {
 	void	*new_content;
 	t_list	*new_node;
 
-	new_content = f(lst->content);
+	new_content = f(l->content);
 	if (!new_content)
 		return (NULL);
 	new_node = ft_lstnew(new_content);
@@ -45,14 +45,14 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst || !f || !del)
 		return (NULL);
-	new_list = ft_create_node(lst, f, del);
+	new_list = new_node(lst, f, del);
 	if (!new_list)
 		return (NULL);
 	temp = new_list;
 	lst = lst->next;
 	while (lst)
 	{
-		temp->next = ft_create_node(lst, f, del);
+		temp->next = new_node(lst, f, del);
 		if (!temp->next)
 			return (ft_clear_all(new_list, del, NULL));
 		temp = temp->next;
