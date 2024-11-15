@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:14:30 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 12:28:27 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/15 11:26:06 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		*(char *)(dest + i) = *(char *)(src + i);
+		*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
 		i++;
 	}
 	return (dest);

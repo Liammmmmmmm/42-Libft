@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 14:36:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 12:28:34 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/15 11:26:14 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (dest == ((void *)0) && src == ((void *)0))
-		return (((void *)0));
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	if (dest < src)
 	{
 		i = 0;
 		while (i < n)
 		{
-			*(char *)(dest + i) = *(char *)(src + i);
+			*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
 			i++;
 		}
 	}
@@ -31,7 +31,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		while (n > 0)
 		{
-			*(char *)(dest + n - 1) = *(char *)(src + n - 1);
+			*(unsigned char *)(dest + n - 1) = *(unsigned char *)(src + n - 1);
 			n--;
 		}
 	}
