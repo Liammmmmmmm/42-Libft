@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 17:02:34 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 17:51:16 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/18 15:28:19 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*temp;
 
-	if (!lst || !*lst)
+	if (lst == NULL || *lst == NULL)
 		return ;
-	while (*lst != NULL)
+	while (*lst)
 	{
 		temp = (*lst)->next;
 		del((*lst)->content);
