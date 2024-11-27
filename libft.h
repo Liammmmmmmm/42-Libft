@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/18 15:26:38 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/27 13:22:01 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -660,5 +660,18 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
  *         element's content, or NULL if memory allocation fails.
  */
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/**
+ * @brief Deletes a specific element from the list without losing the other 
+ *        elements.
+ *
+ * This function deletes the specified element from the list without losing
+ * the other elements. It updates the pointers accordingly to maintain the
+ * integrity of the list.
+ * 
+ * @param first A pointer to the pointer to the first element in the list.
+ * @param lst The element to delete from the list.
+ */
+void	ft_lstdelmiddle(t_list **first, t_list *lst);
 
 #endif
