@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/27 13:22:01 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/28 17:09:18 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-#include <unistd.h>
+# include <unistd.h>
+# include "ft_printf.h"
 
 /**
  * @brief zero a byte string
