@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2024/11/28 17:10:46 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/11/28 18:39:26 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRCS     = fd/ft_putchar_fd.c fd/ft_putendl_fd.c fd/ft_putnbr_fd.c fd/ft_putstr_
            lists/ft_lstnew_bonus.c lists/ft_lstadd_front_bonus.c lists/ft_lstsize_bonus.c lists/ft_lstlast_bonus.c lists/ft_lstadd_back_bonus.c lists/ft_lstdelone_bonus.c lists/ft_lstclear_bonus.c lists/ft_lstiter_bonus.c lists/ft_lstmap_bonus.c lists/ft_lstdelmiddle.c   \
            char/ft_tolower.c char/ft_toupper.c char/ft_isalnum.c char/ft_isalpha.c char/ft_isascii.c char/ft_isdigit.c char/ft_isprint.c                                                                                                                                        \
            str/ft_atoi.c str/ft_itoa.c str/ft_split.c str/ft_strchr.c str/ft_strdup.c str/ft_striteri.c str/ft_strjoin.c str/ft_strlcat.c str/ft_strlcpy.c str/ft_strlen.c str/ft_strmapi.c str/ft_strncmp.c str/ft_strnstr.c str/ft_strrchr.c str/ft_strtrim.c str/ft_substr.c \
-		   printf/ft_printf.c printf/ft_print_content.c
+		   printf/ft_printf.c printf/ft_print_content.c                                                                                                                                                                                                                         \
+		   get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 # Object files directory
 OBJ_DIR  = .obj/

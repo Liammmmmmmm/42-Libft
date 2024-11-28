@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/28 17:09:18 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/11/28 18:34:43 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "ft_printf.h"
+# include "get_next_line.h"
 
 /**
  * @brief zero a byte string
@@ -197,13 +198,26 @@ int		ft_isprint(int c);
  * @brief Calculates the length of a string.
  *
  * The ft_strlen() function calculates the length of the string pointed to by
- * s, excluding the terminating null byte ('\0').
+ * str, excluding the terminating null byte ('\0').
  *
  * @param str A pointer to the string whose length is to be calculated.
  * 
  * @return The number of bytes in the string pointed to by str.
  */
 size_t	ft_strlen(const char *str);
+
+/**
+ * @brief Calculates the length of a string and return 0 if str is null.
+ *
+ * The secure strlen function calculates the length of the string pointed to
+ * by str, excluding the terminating null byte ('\0'). If the str is NULL,
+ * the function return 0 instead of crashing.
+ *
+ * @param str A pointer to the string whose length is to be calculated.
+ * 
+ * @return The number of bytes in the string pointed to by str.
+ */
+size_t	ft_sstrlen(char *str);
 
 /**
  * @brief Applies a function to each character of a string with its index.
