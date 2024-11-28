@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 11:50:39 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/18 15:26:52 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/05 11:57:40 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/09 16:48:11 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putnbr_fd(int n, int fd)
+int	ft_isalnum(int c)
 {
-	if (n == -2147483648)
-		write(fd, "-2147483648", 11);
-	else if (n < 0)
-	{
-		n = -n;
-		write(fd, "-", 1);
-	}
-	if (n <= 9)
-		write(fd, &"0123456789"[n], 1);
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		write(fd, &"0123456789"[n % 10], 1);
-	}
+	return (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		|| (c >= '0' && c <= '9'));
 }

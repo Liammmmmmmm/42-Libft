@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelmiddle.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 14:36:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/15 11:26:14 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/27 11:58:19 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/28 16:39:57 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	ft_lstdelmiddle(t_list **first, t_list *lst)
 {
-	size_t	i;
+	t_list	*current;
 
-	if (dest == NULL && src == NULL)
-		return (NULL);
-	if (dest < src)
+	if (!first || !*first || !lst)
+		return ;
+	if (*first == lst)
 	{
-		i = 0;
-		while (i < n)
-		{
-			*(unsigned char *)(dest + i) = *(unsigned char *)(src + i);
-			i++;
-		}
+		*first = lst->next;
+		free(lst->content);
+		free(lst);
 	}
 	else
 	{
-		while (n > 0)
+		current = *first;
+		while (current)
 		{
-			*(unsigned char *)(dest + n - 1) = *(unsigned char *)(src + n - 1);
-			n--;
+			if (current->next == lst)
+			{
+				current->next = lst->next;
+				free(lst->content);
+				free(lst);
+			}
+			current = current->next;
 		}
 	}
-	return (dest);
 }

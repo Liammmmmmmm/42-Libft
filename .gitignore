@@ -1,0 +1,7 @@
+.gitignore
+
+.obj/
+.vscode/
+
+libft.a
+*.o

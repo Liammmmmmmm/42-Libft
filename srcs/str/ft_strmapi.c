@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 14:54:59 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/08 12:28:03 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/11/08 10:48:30 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/11/28 16:41:00 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
+	char	*new_str;
 
-	if (n == 0)
-		return (0);
+	new_str = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!new_str)
+		return (NULL);
 	i = 0;
-	while (*(((const unsigned char *)s1) + i)
-		== *(((const unsigned char *)s2) + i) && i + 1 < n)
+	while (s[i])
+	{
+		new_str[i] = f(i, s[i]);
 		i++;
-	return (*(((unsigned char *)s1) + i) - *(((unsigned char *)s2) + i));
+	}
+	new_str[i] = 0;
+	return (new_str);
 }
