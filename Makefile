@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2024/11/28 18:39:26 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/02 12:25:29 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ OBJ_DIR  = .obj/
 OBJ      = $(SRCS:%.c=$(OBJ_DIR)%.o)
 
 # Remake all if modified
-REMAKE   = includes/libft.h includes/ft_printf.h Makefile
+REMAKE   = includes/libft.h includes/ft_printf.h includes/get_next_line.h Makefile
 
 # Pattern rule for object files
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(REMAKEALL)
