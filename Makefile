@@ -6,18 +6,28 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/07 17:51:22 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/11 15:00:24 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
 # Library name
 NAME     = libft.a
 
-# Colors
+# STYLE
+GREY     = \033[0;30m
 RED      = \033[0;31m
 GREEN    = \033[0;32m
 YELLOW   = \033[0;33m
-NC       = \033[0m
+BLUE     = \033[0;34m
+WHITE    = \033[0;37m
+
+BOLD     = \033[1m
+UNDER    = \033[4m
+REV      = \033[7m
+
+NC       = \033[0;0m
+ERASE    = \033[2K\r
+ERASE2   = $(ERASE)\033[F$(ERASE)
 
 # Compiler and flags
 CC       = cc
@@ -44,26 +54,52 @@ OBJ      = $(SRCS:%.c=$(OBJ_DIR)%.o)
 # Remake all if modified
 REMAKE   = includes/libft.h includes/ft_printf.h includes/get_next_line.h Makefile
 
+TOTAL_FILES		:=	$(words $(SRCS))
+COMPILED_FILES	:=	0
+PERCENT			:=	0
+BAR_WIDTH		:=	41
+
+REPEAT_CHAR		=	$(if $(filter-out 0,$2),$(shell seq 1 $2 | xargs -I@ printf "$1"),)
+
 # Pattern rule for object files
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(REMAKEALL)
 	@mkdir -p $(dir $@)
-	@echo "$(GREEN)[Compiling] $(NC)$<"
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDES)
+	@$(eval COMPILED_FILES := $(shell expr $(COMPILED_FILES) + 1))
+	@$(eval PERCENT := $(shell echo $$(($(COMPILED_FILES) * 100 / $(TOTAL_FILES)))))
+	@$(eval PROGRESS := $(shell echo $$(($(PERCENT) * $(BAR_WIDTH) / 100))))
+	@$(eval EMPTY := $(shell echo $$(($(BAR_WIDTH) - $(PROGRESS)))))
+	@printf "$(ERASE2)$(GREEN)[Compiling] $(NC)$(shell echo $< | sed 's|^srcs/||')\n"
+	@printf "\n$(YELLOW)[$(call REPEAT_CHAR,⣿,$(PROGRESS))$(call REPEAT_CHAR, ,$(EMPTY))]${NC} ${NC}${PERCENT}%%${NC}\r"
 
 all : start_message $(NAME)
 
 start_message:
-	@if [ ! -f $(NAME) ] || [ `find $(SRCS) -newer $(NAME)` ]; then \
-		echo "$(YELLOW)Starting compilation...\n$(NC)"; \
+	@if [ ! -f $(NAME) ] || [ `for file in $(SRCS); do find $(SRC_DIR)$$file -newer $(NAME); done` ]; then \
+		echo "\n$(YELLOW)╔══════════════════════════════════════════════╗$(NC)"; \
+		echo "$(YELLOW)║       Starting $(YELLOW)$(BOLD)$(NAME)$(YELLOW) compilation...        ║$(NC)"; \
+		echo "$(YELLOW)╚══════════════════════════════════════════════╝$(NC)\n\n"; \
 	fi
 
 end_message:
-	@echo "$(YELLOW)\nCompilation finished successfully!$(NC)"; \
+	@echo "$(GREEN)\n╔══════════════════════════════════════════════╗$(NC)"
+	@echo "$(GREEN)║$(NC)       _____                                  $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(NC)      /     \                                 $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(NC)      vvvvvvv  /|__/|                         $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(NC)         I   /O,O   |                         $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(NC)         I /_____   |      /|/|               $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(NC)        J|/^ ^ ^ \  |    /00  |    _//|       $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(NC)         |^ ^ ^ ^ |W|   |/^^\ |   /oo |       $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(NC)          \m___m__|_|    \m_m_|   \mm_|       $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(NC)                                              $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(BLUE)  Your libft has been successfully compiled!  $(GREEN)║$(NC)"
+	@echo "$(GREEN)║$(BLUE) Totoro ensures your libft is ready for prod. $(GREEN)║$(NC)"
+	@echo "$(GREEN)╚══════════════════════════════════════════════╝$(NC)"
 
 $(NAME) : $(OBJ)
-	@echo "$(GREEN)[Creating library] $(NC)$(NAME)"
+	@echo "\n\n$(GREEN)[Creating library] $(NC)$(NAME)"
 	@$(AR) $@ $?
-	@make end_message
+	@make --no-print-directory end_message
 
 clean :
 	@echo "$(RED)[Removing] $(NC)object files"
