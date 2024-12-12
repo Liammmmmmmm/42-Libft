@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/11 15:00:24 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/12 14:43:58 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,14 @@ RED      = \033[0;31m
 GREEN    = \033[0;32m
 YELLOW   = \033[0;33m
 BLUE     = \033[0;34m
+PURPLE   = \033[0;35m
+CYAN     = \033[0;36m
 WHITE    = \033[0;37m
 
 BOLD     = \033[1m
 UNDER    = \033[4m
 REV      = \033[7m
+BLINK    = \033[5m
 
 NC       = \033[0;0m
 ERASE    = \033[2K\r
@@ -54,7 +57,21 @@ OBJ      = $(SRCS:%.c=$(OBJ_DIR)%.o)
 # Remake all if modified
 REMAKE   = includes/libft.h includes/ft_printf.h includes/get_next_line.h Makefile
 
+# Variables for progress bar
 TOTAL_FILES		:=	$(words $(SRCS))
+MODIFIED_FILES  := $(shell if [ -f $(NAME) ]; then \
+                        if [ `for file in $(REMAKE); do find $$file -newer $(NAME); done | wc -l` -gt 0 ]; then \
+                            echo $(TOTAL_FILES); \
+                        else \
+                            for file in $(SRCS); do find $(SRC_DIR)$$file -newer $(NAME); done | wc -l; \
+                        fi; \
+                    else \
+                        for file in $(SRCS); do \
+                            obj_file=$(OBJ_DIR)$${file%.c}.o; \
+                            if [ ! -f $$obj_file ] || [ $(SRC_DIR)$$file -nt $$obj_file ]; then \
+                                echo $$file; \
+                            fi; \
+                        done | wc -l; fi)
 COMPILED_FILES	:=	0
 PERCENT			:=	0
 BAR_WIDTH		:=	41
@@ -62,23 +79,29 @@ BAR_WIDTH		:=	41
 REPEAT_CHAR		=	$(if $(filter-out 0,$2),$(shell seq 1 $2 | xargs -I@ printf "$1"),)
 
 # Pattern rule for object files
-$(OBJ_DIR)%.o : $(SRC_DIR)%.c $(REMAKEALL)
+$(OBJ_DIR)%.o : $(SRC_DIR)%.c $(REMAKE)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDES)
 	@$(eval COMPILED_FILES := $(shell expr $(COMPILED_FILES) + 1))
-	@$(eval PERCENT := $(shell echo $$(($(COMPILED_FILES) * 100 / $(TOTAL_FILES)))))
-	@$(eval PROGRESS := $(shell echo $$(($(PERCENT) * $(BAR_WIDTH) / 100))))
-	@$(eval EMPTY := $(shell echo $$(($(BAR_WIDTH) - $(PROGRESS)))))
-	@printf "$(ERASE2)$(GREEN)[Compiling] $(NC)$(shell echo $< | sed 's|^srcs/||')\n"
-	@printf "\n$(YELLOW)[$(call REPEAT_CHAR,⣿,$(PROGRESS))$(call REPEAT_CHAR, ,$(EMPTY))]${NC} ${NC}${PERCENT}%%${NC}\r"
+	@if [ $(MODIFIED_FILES) -ne 0 ]; then \
+		$(eval PERCENT := $(shell echo $$(($(COMPILED_FILES) * 100 / $(MODIFIED_FILES))))) \
+		$(eval PROGRESS := $(shell echo $$(($(PERCENT) * $(BAR_WIDTH) / 100)))) \
+		$(eval EMPTY := $(shell echo $$(($(BAR_WIDTH) - $(PROGRESS))))) \
+		printf "$(ERASE2)$(GREEN)[Compiling] $(NC)$(shell echo $< | sed 's|^srcs/||')\n"; \
+		printf "\n$(YELLOW)[$(call REPEAT_CHAR,⣿,$(PROGRESS))$(call REPEAT_CHAR, ,$(EMPTY))]${NC} ${NC}${PERCENT}%%${NC}\r"; \
+	fi
 
 all : start_message $(NAME)
 
 start_message:
-	@if [ ! -f $(NAME) ] || [ `for file in $(SRCS); do find $(SRC_DIR)$$file -newer $(NAME); done` ]; then \
-		echo "\n$(YELLOW)╔══════════════════════════════════════════════╗$(NC)"; \
-		echo "$(YELLOW)║       Starting $(YELLOW)$(BOLD)$(NAME)$(YELLOW) compilation...        ║$(NC)"; \
-		echo "$(YELLOW)╚══════════════════════════════════════════════╝$(NC)\n\n"; \
+	@if [ ! -f $(NAME) ] || [ $(MODIFIED_FILES) != 0 ]; then                                                \
+		echo "\n$(YELLOW)╔══════════════════════════════════════════════╗$(NC)";                             \
+		echo "$(YELLOW)║       Starting $(YELLOW)$(BOLD)$(NAME)$(YELLOW) compilation...        ║$(NC)";       \
+		echo "$(YELLOW)╚══════════════════════════════════════════════╝$(NC)\n\n";                             \
+	else                                                                                                        \
+		echo "\n$(YELLOW)╔══════════════════════════════════════════════╗$(NC)";                                 \
+		echo "$(YELLOW)║       Nothing to be done for $(YELLOW)$(BOLD)$(NAME)$(YELLOW).        ║$(NC)";           \
+		echo "$(YELLOW)╚══════════════════════════════════════════════╝$(NC)\n\n";                                 \
 	fi
 
 end_message:
@@ -106,9 +129,13 @@ clean :
 	@rm -rf $(OBJ_DIR)
 
 fclean : clean
-	@echo "$(RED)[Removing] $(NC)library $(NAME)"
-	@rm -f $(NAME)
+	@if [ -f $(NAME) ]; then                         \
+        echo "$(RED)[Removing] $(NC)library $(NAME)"; \
+        rm -f $(NAME);                                \
+    fi
 
-re : fclean all
+re : fclean
+	@make --no-print-directory all
 
 .PHONY: all clean fclean re start_message end_message
+
