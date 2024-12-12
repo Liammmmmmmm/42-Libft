@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/12 14:43:58 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/12 17:13:53 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,14 +59,19 @@ REMAKE   = includes/libft.h includes/ft_printf.h includes/get_next_line.h Makefi
 
 # Variables for progress bar
 TOTAL_FILES		:=	$(words $(SRCS))
-MODIFIED_FILES  := $(shell if [ -f $(NAME) ]; then \
+MODIFIED_FILES  := $(shell if [ -f $(NAME) ]; then                                                             \
                         if [ `for file in $(REMAKE); do find $$file -newer $(NAME); done | wc -l` -gt 0 ]; then \
-                            echo $(TOTAL_FILES); \
-                        else \
-                            for file in $(SRCS); do find $(SRC_DIR)$$file -newer $(NAME); done | wc -l; \
-                        fi; \
-                    else \
-                        for file in $(SRCS); do \
+                            echo $(TOTAL_FILES);                                                                 \
+                        else                                                                                      \
+                            for file in $(SRCS); do \
+                                obj_file=$(OBJ_DIR)$${file%.c}.o; \
+                                if [ $(SRC_DIR)$$file -nt $(NAME) ] || [ ! -f $$obj_file ]; then \
+                                    echo $$file; \
+                                fi; \
+                            done | wc -l; \
+                        fi;                                                                                         \
+                    else                                                                   \
+                        for file in $(SRCS); do                                         \
                             obj_file=$(OBJ_DIR)$${file%.c}.o; \
                             if [ ! -f $$obj_file ] || [ $(SRC_DIR)$$file -nt $$obj_file ]; then \
                                 echo $$file; \
@@ -83,11 +88,11 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(REMAKE)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -o $@ -c $< $(INCLUDES)
 	@$(eval COMPILED_FILES := $(shell expr $(COMPILED_FILES) + 1))
-	@if [ $(MODIFIED_FILES) -ne 0 ]; then \
-		$(eval PERCENT := $(shell echo $$(($(COMPILED_FILES) * 100 / $(MODIFIED_FILES))))) \
-		$(eval PROGRESS := $(shell echo $$(($(PERCENT) * $(BAR_WIDTH) / 100)))) \
-		$(eval EMPTY := $(shell echo $$(($(BAR_WIDTH) - $(PROGRESS))))) \
-		printf "$(ERASE2)$(GREEN)[Compiling] $(NC)$(shell echo $< | sed 's|^srcs/||')\n"; \
+	@if [ $(MODIFIED_FILES) -ne 0 ]; then                                                                               \
+		$(eval PERCENT := $(shell echo $$(($(COMPILED_FILES) * 100 / $(MODIFIED_FILES)))))                               \
+		$(eval PROGRESS := $(shell echo $$(($(PERCENT) * $(BAR_WIDTH) / 100))))                                           \
+		$(eval EMPTY := $(shell echo $$(($(BAR_WIDTH) - $(PROGRESS)))))                                                    \
+		printf "$(ERASE2)$(GREEN)[Compiling] $(NC)$(shell echo $< | sed 's|^srcs/||')\n";                                   \
 		printf "\n$(YELLOW)[$(call REPEAT_CHAR,⣿,$(PROGRESS))$(call REPEAT_CHAR, ,$(EMPTY))]${NC} ${NC}${PERCENT}%%${NC}\r"; \
 	fi
 
