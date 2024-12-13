@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 17:04:16 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/13 16:11:12 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -325,6 +325,24 @@ char	*ft_strdup(const char *str);
  *         memory allocation fails.
  */
 char	*ft_strjoin(char const *s1, char const *s2);
+
+/**
+ * @brief Concatenates a malloc string with a non malloc string.
+ *
+ * The ft_strjoin_free() function concatenates the string s1 with the string s2,
+ * but it is specialy made to concatenate a result with a buffer. Your result is
+ * always already malloc, and will be free before returning the new result.
+ * 
+ * If there is insufficient memory available for allocation, the function will
+ * return NULL.
+ *
+ * @param s1 The result : NULL or an already malloced string.
+ * @param s2 A buffer ton join to the result.
+ * 
+ * @return A new string containing the concatenation of s1 and s2, or NULL if
+ *         memory allocation fails.
+ */
+char	*ft_strjoin_free(char const *s1, char const *s2);
 
 /**
  * @brief Count the amount of "words" in a string.
