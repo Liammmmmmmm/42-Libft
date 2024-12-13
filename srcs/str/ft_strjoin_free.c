@@ -6,13 +6,13 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:00:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/13 16:07:52 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/13 16:13:15 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_free(char const *s1, char const *s2)
+char	*ft_strjoin_free(char *s1, char const *s2)
 {
 	size_t	s1_len;
 	size_t	s2_len;

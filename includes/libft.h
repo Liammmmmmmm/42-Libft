@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/13 16:11:12 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/13 16:13:31 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -342,7 +342,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
  * @return A new string containing the concatenation of s1 and s2, or NULL if
  *         memory allocation fails.
  */
-char	*ft_strjoin_free(char const *s1, char const *s2);
+char	*ft_strjoin_free(char *s1, char const *s2);
 
 /**
  * @brief Count the amount of "words" in a string.
