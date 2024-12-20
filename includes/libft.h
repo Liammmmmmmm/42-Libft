@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/13 16:13:31 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/20 11:05:36 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,20 @@
 # include <unistd.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
+
+# define GREY	"\033[0;30m"
+# define RED	"\033[0;31m"
+# define GREEN	"\033[0;32m"
+# define YELLOW	"\033[0;33m"
+# define BLUE	"\033[0;34m"
+# define PURPLE	"\033[0;35m"
+# define CYAN	"\033[0;36m"
+# define WHITE	"\033[0;37m"
+# define BOLD	"\033[1m"
+# define UNDER	"\033[4m"
+# define REV	"\033[7m"
+# define BLINK	"\033[5m"
+# define NC		"\033[0;0m"
 
 /**
  * @brief zero a byte string
