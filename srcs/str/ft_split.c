@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:15:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 17:03:18 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/20 12:01:55 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,21 +40,21 @@ static char	**init_variables(size_t *i, int *temp, size_t *count, size_t wordc)
 	return (tab);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char *charset)
 {
 	size_t	count;
 	char	**tab;
 	size_t	i;
 	int		temp;
 
-	tab = init_variables(&i, &temp, &count, ft_count_words(s, c));
+	tab = init_variables(&i, &temp, &count, ft_count_words(s, charset));
 	if (!tab)
 		return (NULL);
 	while (s[i++])
 	{
-		if (s[i - 1] != c && temp == -1)
+		if (ft_strchr(charset, s[i - 1]) == NULL && temp == -1)
 			temp = i - 1;
-		else if (s[i - 1] == c && temp != -1)
+		else if (ft_strchr(charset, s[i - 1]) != NULL && temp != -1)
 		{
 			tab[count] = ft_substr(s, temp, i - 1 - temp);
 			if (!tab[count++])
@@ -64,7 +64,7 @@ char	**ft_split(char const *s, char c)
 	}
 	if (temp != -1)
 		tab[count++] = ft_substr(s, temp, i - 1 - temp);
-	if (!tab[count - 1] && ft_count_words(s, c) != 0)
+	if (!tab[count - 1] && ft_count_words(s, charset) != 0)
 		return (ft_free_tab_rtnull(tab, count - 1));
 	return (tab);
 }

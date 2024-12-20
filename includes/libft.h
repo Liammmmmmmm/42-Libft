@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/20 11:05:36 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/20 12:02:24 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -370,7 +370,7 @@ char	*ft_strjoin_free(char *s1, char const *s2);
  * 
  * @return The amount of word in the string.
  */
-size_t	ft_count_words(char const *str, char c);
+size_t	ft_count_words(char const *str, char *charset);
 
 /**
  * @brief Free a list of strings.
@@ -401,7 +401,7 @@ void	ft_free_tab(char **tab, size_t i);
  * @return A array of strings resulting from the split, or NULL if memory
  *         allocation fails.
  */
-char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char *charset);
 
 /**
  * @brief Trims characters from the beginning and end of a string.
