@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:15:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/02 11:35:02 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/20 12:59:09 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # endif
 
 # ifndef MAX_FD
-#  define MAX_FD 128
+#  define MAX_FD 8
 # endif
 
 # include "libft.h"

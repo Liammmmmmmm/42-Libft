@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/20 12:02:24 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/06 12:39:54 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -558,6 +558,22 @@ int		ft_toupper(int c);
  *         possible.
  */
 int		ft_atoi(const char *str);
+
+/**
+ * @brief Convert a string to an integer.
+ *
+ * The ft_atoi_base() function converts the initial portion of the string 
+ * pointed to by 'str' to an integer. The function skips any leading 
+ * whitespace characters and processes any digits until a non-digit 
+ * character is encountered. 'str' is in the given base.
+ *
+ * @param str The string to convert.
+ * @param base The base of the string.
+ * 
+ * @return The converted integer value or 0 if no valid conversion is
+ *         possible.
+ */
+int		ft_atoi_base(const char *str, char *base);
 
 /**
  * @brief Write a character to a file descriptor.

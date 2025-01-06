@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:51:59 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/28 16:41:08 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/06 11:56:29 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (s[i] != (unsigned char)c)
 	{
 		if (i == 0)
-			return (((void *)0));
+			return (NULL);
 		i--;
 	}
 	return ((char *)s + i);
