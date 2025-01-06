@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/06 12:39:54 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/06 13:46:40 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -379,10 +379,18 @@ size_t	ft_count_words(char const *str, char *charset);
  * 
  * @param tab The string to free
  * @param i the amount of string in the list
- * 
- * @return The amount of word in the string.
  */
 void	ft_free_tab(char **tab, size_t i);
+
+/**
+ * @brief Free a list of int list.
+ * 
+ * This fonction free each int list of a list, and finnaly free the list
+ * 
+ * @param tab The int tab to free
+ * @param i the amount of int list in the list
+ */
+void	ft_free_tab_int(int **tab, size_t i);
 
 /**
  * @brief Splits a string into an array of substrings using a delimiter.
