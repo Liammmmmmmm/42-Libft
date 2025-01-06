@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/06 13:46:40 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/06 14:07:33 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -537,6 +537,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
  *         otherwise, returns 'c' unchanged.
  */
 int		ft_tolower(int c);
+
+/**
+ * @brief Change all uppercase char to lowercase char in a string.
+ *
+ * The ft_str_tolower() function takes a string and change every 
+ * uppercase letter to their corresponding lowercase character.
+ *
+ * @param str The str to convert.
+ * 
+ * @return str
+ */
+char	*ft_str_tolower(char *str);
 
 /**
  * @brief Convert a given character to its uppercase equivalent.
