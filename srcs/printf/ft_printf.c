@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:37:16 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/28 17:07:05 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/10 16:37:28 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ static void	ft_print_param(char type, va_list args, int *counter)
 		ft_print_base(va_arg(args, unsigned int), "0123456789abcdef", counter);
 	else if (type == 'X')
 		ft_print_base(va_arg(args, unsigned int), "0123456789ABCDEF", counter);
+	else if (type == 'f')
+		ft_print_f(va_arg(args, double), 2, counter);
+	else if (type == 'F')
+		ft_print_f(va_arg(args, double), 4, counter);
 	else if (type == '%')
 		ft_printchar_count('%', counter);
 }
@@ -43,9 +47,9 @@ static int	is_valid_conversion(char c)
 	size_t	i;
 
 	i = 0;
-	while ("cspdiuxX%\0"[i])
+	while ("cspdiuxXfF%\0"[i])
 	{
-		if ("cspdiuxX%"[i] == c)
+		if ("cspdiuxXfF%"[i] == c)
 			return (1);
 		i++;
 	}

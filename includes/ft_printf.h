@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/28 17:08:23 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/10 16:36:17 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void	ft_print_s(const char *str, int *counter);
 void	ft_print_p(void *p, int *counter);
 void	ft_print_i(int n, int *counter);
 void	ft_print_base(unsigned int n, char *base, int *counter);
+void	ft_print_f(double n, int decimal, int *counter);
 
 #endif
