@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:58:24 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/12 15:27:21 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/12 16:25:18 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ void	ft_add_i(int n, int *counter, char *final_string)
 	}
 }
 
-void	ft_add_base(unsigned int n, char *base, int *counter, char *final_string)
+void	ft_add_base(unsigned int n, char *base, int *counter, char *f_string)
 {
 	size_t	baselen;
 
 	baselen = ft_strlen(base);
 	if (n <= baselen - 1)
-		ft_addchar_count(base[n], counter, final_string);
+		ft_addchar_count(base[n], counter, f_string);
 	else
 	{
-		ft_add_base(n / baselen, base, counter, final_string);
-		ft_addchar_count(base[n % baselen], counter, final_string);
+		ft_add_base(n / baselen, base, counter, f_string);
+		ft_addchar_count(base[n % baselen], counter, f_string);
 	}
 }
 
