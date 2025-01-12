@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_more.c                                    :+:      :+:    :+:   */
+/*   more_types.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 16:22:51 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/10 16:35:53 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2025/01/12 14:58:24 by lilefebv          #+#    #+#             */
+/*   Updated: 2025/01/12 15:26:35 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "params_to_string.h"
 
 static int	pow_10(int dec)
 {
@@ -29,17 +29,17 @@ static int	pow_10(int dec)
 	return (res);
 }
 
-void	ft_print_f(double n, int decimal, int *counter)
+void	ft_add_f(double n, int decimal, int *counter, char *final_string)
 {
 	int	dec;
 
 	if (n < 0)
 	{
 		n = -n;
-		ft_printchar_count('-', counter);
+		ft_addchar_count('-', counter, final_string);
 	}
-	ft_print_i((int)(n * 10) / 10, counter);
-	ft_printchar_count('.', counter);
+	ft_add_i((int)(n * 10) / 10, counter, final_string);
+	ft_addchar_count('.', counter, final_string);
 	dec = pow_10(decimal);
-	ft_print_i((int)(n * dec) % dec, counter);
+	ft_add_i((int)(n * dec) % dec, counter, final_string);
 }

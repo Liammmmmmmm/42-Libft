@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   params_to_string.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/12 15:01:36 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2025/01/12 14:59:25 by lilefebv          #+#    #+#             */
+/*   Updated: 2025/01/12 16:03:31 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef PARAMS_TO_STRING_H
+# define PARAMS_TO_STRING_H
 
 # include "libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
 
 /**
- * @brief A custom implementation of printf function.
+ * @brief An easy way to combine variables.
  * 
- * This function provides a simplified version of the standard printf function,
- * handling a subset of format specifiers. It supports printing characters, 
- * strings, pointers, integers, unsigned integers, and hexadecimal numbers 
- * in both lowercase and uppercase formats.
+ * This function takes a string with differents format specifiers and their
+ * associated variables, and return a single string with the format specifiers
+ * replaced by the differents variables.
  *
- * It does not implement internal buffer management like the original printf 
- * function and only handles the following format specifiers:
+ * It only handles the following format specifiers:
  * 
  *  - `%c`: Prints a single character.
  * 
@@ -54,19 +52,17 @@
  *               contain text and format specifiers (preceded by '%') to 
  *               format the output accordingly.
  * 
- * @return - The total number of characters printed, excluding the terminating
- *         null byte.
- *   
- *         - If an invalid format specifier is encountered, behavior is
- *         undefined, but no characters will be printed for that specifier.
+ * @return - The new string with your variables in it
  */
-int		ft_printf(const char *str, ...);
+char	*params_to_string(const char *str, ...);
 
-void	ft_printchar_count(int c, int *counter);
-void	ft_print_s(const char *str, int *counter);
-void	ft_print_p(void *p, int *counter);
-void	ft_print_i(int n, int *counter);
-void	ft_print_base(unsigned int n, char *base, int *counter);
-void	ft_print_f(double n, int decimal, int *counter);
+void	ft_addchar_count(int c, int *counter, char *final_string);
+void	ft_add_f(double n, int decimal, int *counter, char *final_string);
+void	ft_add_i(int n, int *counter, char *final_string);
+void	ft_add_s(const char *str, int *counter, char *final_string);
+void	ft_add_p(void *p, int *counter, char *final_string);
+void	ft_add_base(unsigned int n, char *base, int *counter, char *f_string);
+void	ft_add_x_long(unsigned long long n, int *counter, char *final_string);
+void	ft_add_all(const char *str, int *counter, va_list args, char *f_string);
 
 #endif

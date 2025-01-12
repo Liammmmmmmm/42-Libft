@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/06 14:07:33 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/12 15:31:17 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
+# include "params_to_string.h"
 
 # define GREY	"\033[0;30m"
 # define RED	"\033[0;31m"
