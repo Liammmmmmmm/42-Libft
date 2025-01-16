@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:15:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/20 12:59:09 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 13:14:24 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
+#  define BUFFER_SIZE 65536
 # endif
 
 # ifndef MAX_FD

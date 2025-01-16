@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 14:58:24 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/12 15:26:35 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/01/15 13:48:27 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ void	ft_add_f(double n, int decimal, int *counter, char *final_string)
 	ft_add_i((int)(n * 10) / 10, counter, final_string);
 	ft_addchar_count('.', counter, final_string);
 	dec = pow_10(decimal);
+	if (decimal == 2 && (int)(n * dec) % dec < 10)
+		ft_addchar_count('0', counter, final_string);
 	ft_add_i((int)(n * dec) % dec, counter, final_string);
 }
