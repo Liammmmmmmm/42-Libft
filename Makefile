@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2025/01/12 16:13:33 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2025/02/03 14:36:04 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ ERASE2   = $(ERASE)\033[F$(ERASE)
 
 # Compiler and flags
 CC       = cc
-CFLAGS   = -Wall -Wextra -Werror -g3
+CFLAGS   = -Wall -Wextra -Werror -Ofast
 AR       = ar -rsc
 
 # Includes
