@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/12 15:31:17 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 16:38:47 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -595,6 +595,22 @@ int		ft_atoi(const char *str);
  *         possible.
  */
 int		ft_atoi_base(const char *str, char *base);
+
+/**
+ * @brief Convert a string to an integer with a limit of characters.
+ *
+ * The ft_atoi_base_limited() function converts the initial portion of the
+ * string pointed to by 'str' to an integer. 'str' is in the given base.
+ * It will stop if a character isn't in base, or if it reached limit.
+ *
+ * @param str The string to convert.
+ * @param base The base of the string.
+ * @param limit The max amount of char to read
+ * 
+ * @return The converted integer value or 0 if no valid conversion is
+ *         possible.
+ */
+int		ft_atoi_base_limited(const char *str, char *base, int limit);
 
 /**
  * @brief Write a character to a file descriptor.

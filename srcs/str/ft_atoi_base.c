@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 17:57:46 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/06 12:40:34 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/02/05 16:34:14 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,21 @@ int	ft_atoi_base(const char *str, char *base)
 		i++;
 	}
 	return (res * sign);
+}
+
+int	ft_atoi_base_limited(const char *str, char *base, int limit)
+{
+	size_t	i;
+	int		res;
+	int		base_len;
+
+	i = 0;
+	res = 0;
+	base_len = ft_strlen(base);
+	while (ft_strchr(base, str[i]) && str[i] && i < limit)
+	{
+		res = base_len * res + char_pos_int_str(base, str[i]);
+		i++;
+	}
+	return (res);
 }
