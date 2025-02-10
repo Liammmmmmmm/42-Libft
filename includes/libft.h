@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/02/05 16:38:47 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/02/10 11:11:27 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define REV	"\033[7m"
 # define BLINK	"\033[5m"
 # define NC		"\033[0;0m"
+
+typedef unsigned int t_uint;
 
 /**
  * @brief zero a byte string
@@ -579,6 +581,21 @@ int		ft_toupper(int c);
  *         possible.
  */
 int		ft_atoi(const char *str);
+
+/**
+ * @brief Convert a string to an unsigned integer.
+ *
+ * The ft_atoui() function converts the initial portion of the string 
+ * pointed to by 'str' to an unsigned integer. The function skips any leading 
+ * whitespace characters and processes any digits until a non-digit 
+ * character is encountered.
+ *
+ * @param str The string to convert.
+ * 
+ * @return The converted integer value or 0 if no valid conversion is
+ *         possible.
+ */
+t_uint	ft_atoui(const char *str);
 
 /**
  * @brief Convert a string to an integer.
