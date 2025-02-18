@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/02/10 11:11:27 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/02/18 12:14:36 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -347,8 +347,28 @@ char	*ft_strjoin(char const *s1, char const *s2);
  * @brief Concatenates a malloc string with a non malloc string.
  *
  * The ft_strjoin_free() function concatenates the string s1 with the string s2,
- * but it is specialy made to concatenate a result with a buffer. Your result is
- * always already malloc, and will be free before returning the new result.
+ * but it is specialy made to concatenate 2 already malloc strings.
+ * 
+ * If there is insufficient memory available for allocation, the function will
+ * return NULL.
+ *
+ * @param s1 The result : NULL or an already malloced string.
+ * @param s2 The string to join : NULL or an already malloced string.
+ * @param separator A string to put between the two others. It can for example
+ *                  be a space.
+ * 
+ * @return A new string containing the concatenation of s1 and s2, or NULL if
+ *         memory allocation fails.
+ */
+char	*ft_strjoin_free(char *s1, char *s2, char *separator);
+
+/**
+ * @brief Concatenates a malloc string with a non malloc string.
+ *
+ * The ft_strjoin_free_buff() function concatenates the string s1 with the
+ * string s2, but it is specialy made to concatenate a result with a buffer.
+ * Your result is always already malloc, and will be free before returning the
+ * new result.
  * 
  * If there is insufficient memory available for allocation, the function will
  * return NULL.
@@ -359,7 +379,7 @@ char	*ft_strjoin(char const *s1, char const *s2);
  * @return A new string containing the concatenation of s1 and s2, or NULL if
  *         memory allocation fails.
  */
-char	*ft_strjoin_free(char *s1, char const *s2);
+char	*ft_strjoin_free_buff(char *s1, char const *s2);
 
 /**
  * @brief Count the amount of "words" in a string.
