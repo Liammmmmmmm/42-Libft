@@ -1,40 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_tab.c                                      :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 16:57:31 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/02/25 14:54:31 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2025/02/25 10:37:54 by lilefebv          #+#    #+#             */
+/*   Updated: 2025/02/25 10:39:24 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_free_tab(char **tab, size_t i)
+int	ft_isspace(int c)
 {
-	size_t	c;
-
-	c = 0;
-	while (c < i)
-	{
-		free(tab[c]);
-		c++;
-	}
-	free(tab);
+	return (c == ' ' || c == '\f' || c == '\n' || c == '\t' || c == '\v');
 }
-
-void	ft_free_tab_null_term(char **tab)
-{
-	size_t	i;
-
-	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-}
-

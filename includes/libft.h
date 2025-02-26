@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/02/18 12:14:36 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/02/25 14:55:08 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,19 @@ void	*ft_memset(void *pointer, int val, size_t n);
  * @return A pointer to the allocated space, or NULL if the allocation fails.
  */
 void	*ft_calloc(size_t number, size_t size);
+
+/**
+ * @brief Tests whether a character is space.
+ *
+ * The ft_isspace() function tests whether the character c is a space character.
+ *
+ * @param c The character to test, represented as an int. The value should be
+ *          representable as an unsigned char. Any other value results in
+ *          undefined behavior.
+ * 
+ * @return A non-zero value if c is a space character; 0 otherwise.
+ */
+int	ft_isspace(int c);
 
 /**
  * @brief Tests whether a character is alphanumeric.
@@ -404,6 +417,15 @@ size_t	ft_count_words(char const *str, char *charset);
  * @param i the amount of string in the list
  */
 void	ft_free_tab(char **tab, size_t i);
+
+/**
+ * @brief Free a list of strings.
+ * 
+ * This fonction free each string of a list, and finnaly free the list
+ * 
+ * @param tab The string to free
+ */
+void	ft_free_tab_null_term(char **tab);
 
 /**
  * @brief Free a list of int list.
