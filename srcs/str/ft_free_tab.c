@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:57:31 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/02/25 14:54:31 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/02/27 11:24:09 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ void	ft_free_tab_null_term(char **tab)
 	}
 	free(tab);
 }
-

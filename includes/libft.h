@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/02/25 14:55:08 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/02/27 11:24:51 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define BLINK	"\033[5m"
 # define NC		"\033[0;0m"
 
-typedef unsigned int t_uint;
+typedef unsigned int	t_uint;
 
 /**
  * @brief zero a byte string
@@ -153,7 +153,7 @@ void	*ft_calloc(size_t number, size_t size);
  * 
  * @return A non-zero value if c is a space character; 0 otherwise.
  */
-int	ft_isspace(int c);
+int		ft_isspace(int c);
 
 /**
  * @brief Tests whether a character is alphanumeric.
