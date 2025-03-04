@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:06:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/28 16:41:03 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 16:11:41 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,14 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			return (0);
 		i++;
 	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	size_t	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/02/27 11:24:51 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 16:14:10 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -535,6 +535,23 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 
 /**
+ * @brief Compare two strings.
+ *
+ * The ft_strcmp() function compares the strings 's1' 
+ * and 's2', stopping at the null terminator if encountered.
+ * The comparison is done using unsigned char values.
+ *
+ * @param s1 The first string to compare.
+ * @param s2 The second string to compare.
+ *
+ * @return An integer less than, equal to, or greater than 0, indicating
+ *         whether 's1' is less than, equal to, or greater than 's2'. 
+ *         If the strings are equal, 0 is returned.
+ */
+
+int	ft_strcmp(const char *s1, const char *s2);
+
+/**
  * @brief Compare two strings up to a specified number of characters.
  *
  * The ft_strncmp() function compares at most 'n' bytes of the strings 's1' 
@@ -549,6 +566,7 @@ char	*ft_strrchr(const char *s, int c);
  *         whether 's1' is less than, equal to, or greater than 's2'. 
  *         If the strings are equal up to 'n' characters, 0 is returned.
  */
+ 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
