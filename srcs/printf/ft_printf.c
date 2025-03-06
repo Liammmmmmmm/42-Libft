@@ -6,15 +6,15 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:37:16 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/12 16:12:32 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/06 14:05:56 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_rt(char *str)
+int	ft_putstr_rt(int fd, char *str)
 {
-	return (write(1, str, ft_strlen(str)));
+	return (write(fd, str, ft_strlen(str)));
 }
 
 static char	*p_to_s_printf(const char *str, va_list	args)
@@ -50,7 +50,24 @@ int	ft_printf(const char *str, ...)
 	if (!string)
 		return (-1);
 	res = -1;
-	res = ft_putstr_rt(string);
+	res = ft_putstr_rt(1, string);
+	free(string);
+	return (res);
+}
+
+int	ft_dprintf(int fd, const char *str, ...)
+{
+	va_list	args;
+	char	*string;
+	int		res;
+
+	va_start(args, str);
+	string = p_to_s_printf(str, args);
+	va_end(args);
+	if (!string)
+		return (-1);
+	res = -1;
+	res = ft_putstr_rt(fd, string);
 	free(string);
 	return (res);
 }

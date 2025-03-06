@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/04 16:14:10 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 16:23:42 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -286,6 +286,23 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
  *         allocation fails.
  */
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
+/**
+ * @brief Appends a string to a destination buffer.
+ *
+ * The ft_strlcat() function appends the null-terminated string src to the end
+ * of the null-terminated string dest, ensuring the result is null-terminated.
+ * The total length of the string it tried to create (initial length of dest
+ * plus length of src) is returned.
+ *
+ * @param dest The destination buffer to append the string to.
+ * @param src The source string to append.
+ * 
+ * @return The total length of the string it tried to create (initial length
+ *         of dest plus length of src).
+ */
+
+size_t	ft_strcat(char *dest, const char *src);
 
 /**
  * @brief Appends a string to a destination buffer with size limitation.

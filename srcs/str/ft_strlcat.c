@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 15:10:03 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/28 16:40:54 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/04 16:23:31 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,20 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	}
 	dest[i + dest_len] = '\0';
 	return (src_len + dest_len);
+}
+
+size_t	ft_strcat(char *dest, const char *src)
+{
+	size_t	i;
+	size_t	dest_len;
+
+	i = 0;
+	dest_len = ft_strlen(dest);
+	while (src[i])
+	{
+		dest[i + dest_len] = src[i];
+		i++;
+	}
+	dest[i + dest_len] = '\0';
+	return (i + dest_len);
 }
