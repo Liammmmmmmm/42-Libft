@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/04 16:23:42 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/07 14:57:54 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@
 # define PURPLE	"\033[0;35m"
 # define CYAN	"\033[0;36m"
 # define WHITE	"\033[0;37m"
+# define BRIGHT_GREY "\033[0;90m"
+# define BRIGHT_RED "\033[0;91m"
+# define BRIGHT_GREEN "\033[0;92m"
+# define BRIGHT_YELLOW "\033[0;93m"
+# define BRIGHT_BLUE "\033[0;94m"
+# define BRIGHT_PURPLE "\033[0;95m"
+# define BRIGHT_CYAN "\033[0;96m"
+# define BRIGHT_WHITE "\033[0;97m"
 # define BOLD	"\033[1m"
 # define UNDER	"\033[4m"
 # define REV	"\033[7m"
