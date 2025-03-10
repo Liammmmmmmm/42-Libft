@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/07 14:57:54 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/10 13:22:16 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -574,7 +574,7 @@ char	*ft_strrchr(const char *s, int c);
  *         If the strings are equal, 0 is returned.
  */
 
-int	ft_strcmp(const char *s1, const char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 
 /**
  * @brief Compare two strings up to a specified number of characters.
@@ -591,7 +591,7 @@ int	ft_strcmp(const char *s1, const char *s2);
  *         whether 's1' is less than, equal to, or greater than 's2'. 
  *         If the strings are equal up to 'n' characters, 0 is returned.
  */
- 
+
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**

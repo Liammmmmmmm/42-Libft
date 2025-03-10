@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/06 14:08:10 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/10 13:22:30 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,6 @@ int		ft_printf(const char *str, ...);
  *         - If an invalid format specifier is encountered, behavior is
  *         undefined, but no characters will be printed for that specifier.
  */
-int	ft_dprintf(int fd, const char *str, ...);
+int		ft_dprintf(int fd, const char *str, ...);
 
 #endif
