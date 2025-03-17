@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:15:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/15 13:14:24 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/17 14:33:34 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,5 @@
  * @return char* The next line read from the file descriptor
  */
 char	*get_next_line(int fd);
-
-char	*ft_strjoin_limited(char *s1, char *s2, size_t s2limit);
 
 #endif
