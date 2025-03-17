@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 15:02:15 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/01/12 16:24:46 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/17 11:45:31 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,28 +76,4 @@ void	ft_add_all(const char *str, int *counter, va_list args, char *f_string)
 			ft_addchar_count(str[i], counter, f_string);
 		i++;
 	}
-}
-
-char	*params_to_string(const char *str, ...)
-{
-	va_list	args;
-	va_list	args_add;
-	int		char_counter;
-	char	*f_string;
-
-	char_counter = 0;
-	f_string = NULL;
-	va_start(args, str);
-	va_copy(args_add, args);
-	ft_add_all(str, &char_counter, args_add, f_string);
-	va_end(args_add);
-	f_string = malloc(sizeof(char) * (char_counter + 1));
-	if (f_string)
-	{
-		char_counter = 0;
-		ft_add_all(str, &char_counter, args, f_string);
-		f_string[char_counter] = 0;
-	}
-	va_end(args);
-	return (f_string);
 }

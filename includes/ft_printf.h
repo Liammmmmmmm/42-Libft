@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/10 13:22:30 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/17 11:49:38 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,44 @@ int		ft_printf(const char *str, ...);
  *         undefined, but no characters will be printed for that specifier.
  */
 int		ft_dprintf(int fd, const char *str, ...);
+
+/**
+ * @brief An easy way to combine variables.
+ * 
+ * This function takes a string with differents format specifiers and their
+ * associated variables, and return a single string with the format specifiers
+ * replaced by the differents variables.
+ *
+ * It only handles the following format specifiers:
+ * 
+ *  - `%c`: Prints a single character.
+ * 
+ *  - `%s`: Prints a string (null-terminated).
+ * 
+ *  - `%p`: Prints a pointer in hexadecimal format.
+ * 
+ *  - `%d`: Prints a signed decimal (base 10) number.
+ * 
+ *  - `%i`: Prints a signed integer (base 10) number (same as `%d`).
+ * 
+ *  - `%u`: Prints an unsigned decimal (base 10) number.
+ * 
+ *  - `%x`: Prints a number in hexadecimal (base 16) lowercase format.
+ * 
+ *  - `%X`: Prints a number in hexadecimal (base 16) uppercase format.
+ * 
+ *  - `%f`: Prints a float with two decimals.
+ * 
+ *  - `%F`: Prints a float with four decimals.
+ * 
+ *  - `%%`: Prints a literal percent sign.
+ *
+ * @param format A string that specifies the format of the output. It can
+ *               contain text and format specifiers (preceded by '%') to 
+ *               format the output accordingly.
+ * 
+ * @return - The new string with your variables in it
+ */
+char	*ft_sprintf(const char *str, ...);
 
 #endif
