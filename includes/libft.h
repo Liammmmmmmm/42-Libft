@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/10 13:22:16 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/18 13:38:42 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -466,20 +466,38 @@ void	ft_free_tab_int(int **tab, size_t i);
  * @brief Splits a string into an array of substrings using a delimiter.
  *
  * The ft_split() function splits the string s into an array of substrings,
- * separated by the delimiter character c. The resulting array of substrings
- * is terminated by a NULL pointer.
+ * separated by the delimiter characters charset. The resulting array of
+ * substrings is terminated by a NULL pointer.
  * 
  * The memory for the resulting array and substrings is allocated using 
  * malloc().
  * If memory allocation fails, the function will return NULL.
  *
  * @param s The string to split.
- * @param c The delimiter character used to split the string.
+ * @param charset The delimiters characters used to split the string.
  * 
  * @return A array of strings resulting from the split, or NULL if memory
  *         allocation fails.
  */
 char	**ft_split(char const *s, char *charset);
+
+/**
+ * @brief Splits a string into an array of substrings using a delimiter.
+ *
+ * The ft_split_in_line() function splits the string s into an array of
+ * substrings. The resulting array of substrings is terminated by a NULL
+ * pointer. This one don't allocate each substring but edit the main string
+ * replacing char of charset by \0. s should be editable, and will be edited.
+ * 
+ * If memory allocation fails, the function will return NULL.
+ *
+ * @param s The string to split.
+ * @param charset The delimiters characters used to split the string.
+ * 
+ * @return A array of strings resulting from the split, or NULL if memory
+ *         allocation fails.
+ */
+char	**ft_split_in_line(char *s, char *charset);
 
 /**
  * @brief Trims characters from the beginning and end of a string.

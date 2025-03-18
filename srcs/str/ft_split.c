@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:15:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/20 12:01:55 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/18 13:44:23 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,32 @@ char	**ft_split(char const *s, char *charset)
 		tab[count++] = ft_substr(s, temp, i - 1 - temp);
 	if (!tab[count - 1] && ft_count_words(s, charset) != 0)
 		return (ft_free_tab_rtnull(tab, count - 1));
+	return (tab);
+}
+
+char	**ft_split_in_line(char *s, char *charset)
+{
+	size_t	i;
+	size_t	c;
+	char	**tab;
+
+	tab = malloc(sizeof(char *) * (ft_count_words(s, charset) + 1));
+	if (!tab)
+		return (NULL);
+	i = 0;
+	c = 0;
+	while (s[i])
+	{
+		while (s[i] && ft_strchr(charset, s[i]))
+		{
+			s[i] = '\0';
+			i++;
+		}
+		if (s[i])
+			tab[c++] = &s[i];
+		while (s[i] && !ft_strchr(charset, s[i]))
+			i++;
+	}
+	tab[c] = NULL;
 	return (tab);
 }
