@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/18 13:38:42 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/19 11:57:43 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -731,6 +731,28 @@ int		ft_atoi_base(const char *str, char *base);
  *         possible.
  */
 int		ft_atoi_base_limited(const char *str, char *base, int limit);
+
+/**
+ * @brief know if a string is a valid float
+ * 
+ * @param num The string you want to test
+ * 
+ * @return Return 1 if the string is a valid float, 0 otherwise.
+ */
+int		is_valid_float(char *num);
+
+/**
+ * @brief Convert a string into a float
+ * 
+ * Take a string and transform it into a float. If the string isn't valid, it
+ * will try to convert it until it cannot anymore. The best thing to do is
+ * calling `is_valid_float()` before ft_atof.
+ * 
+ * @param str The string you want to convert
+ * 
+ * @return Your string as a float.
+ */
+float	ft_atof(char *str);
 
 /**
  * @brief Write a character to a file descriptor.
