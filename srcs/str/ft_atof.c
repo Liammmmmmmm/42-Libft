@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 11:52:30 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/19 11:52:55 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 12:46:11 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,32 @@ float	ft_atof(char *str)
 {
 	float	res;
 	float	sign;
+	int		i;
+
+	i = 0;
+	sign = 1;
+	res = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		res = 10 * res + str[i] - '0';
+		i++;
+	}
+	res = after_point(str, res, i);
+	return (res * sign);
+}
+
+double	ft_atod(char *str)
+{
+	double	res;
+	double	sign;
 	int		i;
 
 	i = 0;

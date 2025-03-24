@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/19 11:57:43 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/24 12:47:20 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -753,6 +753,19 @@ int		is_valid_float(char *num);
  * @return Your string as a float.
  */
 float	ft_atof(char *str);
+
+/**
+ * @brief Convert a string into a double
+ * 
+ * Take a string and transform it into a double. If the string isn't valid, it
+ * will try to convert it until it cannot anymore. The best thing to do is
+ * calling `is_valid_float()` before ft_atod.
+ * 
+ * @param str The string you want to convert
+ * 
+ * @return Your string as a double.
+ */
+double	ft_atod(char *str);
 
 /**
  * @brief Write a character to a file descriptor.
