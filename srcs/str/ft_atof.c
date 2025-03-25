@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 11:52:30 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/25 11:38:35 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/25 11:47:58 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_valid_float(char *num)
 
 	pointam = 0;
 	i = -1;
-	if (num[0] == '-' && num[0] == '+' )
+	if (num[0] == '-' || num[0] == '+' )
 		i++;
 	while (num[++i])
 	{
