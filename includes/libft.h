@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/24 12:47:20 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/03/30 15:52:28 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include "ft_printf.h"
 # include "get_next_line.h"
 # include "params_to_string.h"
+# include "read_bin.h"
+# include "fcntl.h"
 
 # define GREY	"\033[0;30m"
 # define RED	"\033[0;31m"
@@ -42,6 +44,8 @@
 # define NC		"\033[0;0m"
 
 typedef unsigned int	t_uint;
+typedef unsigned char	t_bool;
+typedef unsigned char	t_uchar;
 
 /**
  * @brief zero a byte string
@@ -954,5 +958,18 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
  * @param lst The element to delete from the list.
  */
 void	ft_lstdelmiddle(t_list **first, t_list *lst);
+
+typedef struct s_vector
+{
+	size_t	element_size;
+	size_t	num_elements;
+	size_t	max_elements;
+	void	*data;
+}				t_vector;
+
+int		vector_add(t_vector *vector, void *element);
+int		vector_realloc(t_vector *vector);
+int		vector_init(t_vector *vector, size_t element_size);
+void	*at_vector(t_vector *vec, size_t i);
 
 #endif

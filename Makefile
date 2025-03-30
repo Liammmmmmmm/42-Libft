@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2025/03/19 13:02:49 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2025/03/30 15:49:16 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ ERASE2   = $(ERASE)\033[F$(ERASE)
 
 # Compiler and flags
 CC       = cc
-CFLAGS   = -Wall -Wextra -Werror -Ofast
+CFLAGS   = -Wall -Wextra -Werror -o3
 AR       = ar -rsc
 
 # Includes
@@ -49,14 +49,16 @@ SRCS     = fd/ft_putchar_fd.c fd/ft_putendl_fd.c fd/ft_putnbr_fd.c fd/ft_putstr_
            str/ft_str_tolower.c str/ft_atoi.c str/ft_atoi_base.c str/ft_atof.c str/ft_itoa.c str/ft_split.c str/ft_count_words.c str/ft_free_tab.c str/ft_free_tab_int.c str/ft_strchr.c str/ft_strdup.c str/ft_striteri.c str/ft_strjoin.c str/ft_strjoin_free.c str/ft_strjoin_free_buff.c str/ft_strlcat.c str/ft_strlcpy.c str/ft_strlen.c str/ft_sstrlen.c str/ft_strmapi.c str/ft_strncmp.c str/ft_strnstr.c str/ft_strrchr.c str/ft_strtrim.c str/ft_substr.c \
 		   printf/ft_printf.c                                                                                                                                                                                                                     \
 		   get_next_line/get_next_line.c                                                          \
-		   params_to_string/params_to_string.c params_to_string/types.c params_to_string/more_types.c
+		   params_to_string/params_to_string.c params_to_string/types.c params_to_string/more_types.c  \
+		   vector/vector.c  \
+		   read_bin/read_file.c
 
 # Object files directory
 OBJ_DIR  = .obj/
 OBJ      = $(SRCS:%.c=$(OBJ_DIR)%.o)
 
 # Remake all if modified
-REMAKE   = includes/libft.h includes/ft_printf.h includes/get_next_line.h Makefile
+REMAKE   = includes/libft.h includes/ft_printf.h includes/get_next_line.h includes/read_bin.h Makefile
 
 # Variables for progress bar
 TOTAL_FILES		:=	$(words $(SRCS))
