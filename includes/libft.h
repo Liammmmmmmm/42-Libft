@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/30 15:52:28 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/04/01 09:50:00 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@
 
 typedef unsigned int	t_uint;
 typedef unsigned char	t_bool;
-typedef unsigned char	t_uchar;
 
 /**
  * @brief zero a byte string
@@ -969,7 +968,7 @@ typedef struct s_vector
 
 int		vector_add(t_vector *vector, void *element);
 int		vector_realloc(t_vector *vector);
-int		vector_init(t_vector *vector, size_t element_size);
+int		vector_init(t_vector *vector, size_t element_size, size_t default_size);
 void	*at_vector(t_vector *vec, size_t i);
 
 #endif

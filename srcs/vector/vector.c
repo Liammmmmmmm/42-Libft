@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 09:34:21 by pabellis          #+#    #+#             */
-/*   Updated: 2025/03/30 15:46:39 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/04/01 09:30:04 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int	vector_realloc(t_vector *vector)
 	return (0);
 }
 
-int	vector_init(t_vector *vector, size_t element_size)
+int	vector_init(t_vector *vector, size_t element_size, size_t default_size)
 {
 	vector->element_size = element_size;
-	vector->max_elements = 100;
+	vector->max_elements = default_size;
 	vector->num_elements = 0;
-	vector->data = malloc(element_size * 100);
+	vector->data = malloc(element_size * default_size);
 	if (vector->data == NULL)
 		return (-1);
 	return (0);
