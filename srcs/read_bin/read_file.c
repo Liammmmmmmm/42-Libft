@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 15:41:04 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/04/01 10:24:38 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/04/01 10:31:51 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static int	set_size(t_vector *vec)
 	return (0);
 }
 
-int	close_free(int fd, char *str, int ret)
+static int	close_free(int fd, char *str, int ret)
 {
 	if (fd != -1)
-	close(fd);
+		close(fd);
 	free(str);
 	return (ret);
 }
