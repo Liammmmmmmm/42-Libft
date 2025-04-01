@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_bin.h                                         :+:      :+:    :+:   */
+/*   read_64_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/30 15:22:16 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/04/01 11:15:05 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2025/04/01 10:50:27 by lilefebv          #+#    #+#             */
+/*   Updated: 2025/04/01 11:15:00 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef READ_BIN_H
-# define READ_BIN_H
+#include "libft.h"
 
-# include "libft.h"
-# include <stdint.h>
-
-# define DEFAULT_BUFFER 16384
-
-typedef unsigned char	t_uchar;
-
-typedef struct s_bin
+int	read_uint64(const t_bin *bin, const size_t i, uint64_t *dest)
 {
-	t_uchar *data;
-	size_t	size;
-}	t_bin;
+	const uint64_t	*read_address = (const uint64_t *)bin->data + i;
 
-int	read_bin_file(t_bin *bin, char *filename);
+	if (i + sizeof(uint64_t) > bin->size)
+		return (-1);
+	*dest = read_address[0];
+	return (0);
+}
 
-int	read_uint64(const t_bin *bin, const size_t i, uint64_t *dest);
-int	read_uint64_move(const t_bin *bin, size_t *i, uint64_t *dest);
-
-
-#endif
+int	read_uint64_move(const t_bin *bin, size_t *i, uint64_t *dest)
+{
+	if (read_uint64(bin, *i, dest) == -1)
+		return (-1);
+	*i += sizeof(uint64_t);
+	return (0);
+}
