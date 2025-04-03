@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:50:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/04/03 10:40:25 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/04/03 10:51:32 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	read_uint8_move(const t_bin *bin, size_t *i, uint8_t *dest)
 	return (0);
 }
 
-int	read_uint8(const t_bin *bin, const size_t i, int8_t *dest)
+int	read_int8(const t_bin *bin, const size_t i, int8_t *dest)
 {
 	const uint8_t	*read_address = (const uint8_t *)bin->data + i;
 
@@ -40,7 +40,7 @@ int	read_uint8(const t_bin *bin, const size_t i, int8_t *dest)
 	return (0);
 }
 
-int	read_uint8_move(const t_bin *bin, size_t *i, int8_t *dest)
+int	read_int8_move(const t_bin *bin, size_t *i, int8_t *dest)
 {
 	if (read_int8(bin, *i, dest) == -1)
 		return (-1);
