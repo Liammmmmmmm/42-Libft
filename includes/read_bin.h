@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_bin.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: madelvin <madelvin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 15:22:16 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/04/03 10:43:45 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/04/09 16:00:39 by madelvin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,29 @@ int	read_uint16_move(const t_bin *bin, size_t *i, uint16_t *dest);
 int	read_int16(const t_bin *bin, const size_t i, int16_t *dest);
 int	read_int16_move(const t_bin *bin, size_t *i, int16_t *dest);
 
+int	read_uint16_little(const t_bin *bin, const size_t i, uint16_t *dest);
+int	read_uint16_move_little(const t_bin *bin, size_t *i, uint16_t *dest);
+int	read_int16_little(const t_bin *bin, const size_t i, int16_t *dest);
+int	read_int16_move_little(const t_bin *bin, size_t *i, int16_t *dest);
+
 int	read_uint32(const t_bin *bin, const size_t i, uint32_t *dest);
 int	read_uint32_move(const t_bin *bin, size_t *i, uint32_t *dest);
 int	read_int32(const t_bin *bin, const size_t i, int32_t *dest);
 int	read_int32_move(const t_bin *bin, size_t *i, int32_t *dest);
 
+int	read_uint32_little(const t_bin *bin, const size_t i, uint32_t *dest);
+int	read_uint32_move_little(const t_bin *bin, size_t *i, uint32_t *dest);
+int	read_int32_little(const t_bin *bin, const size_t i, int32_t *dest);
+int	read_int32_move_little(const t_bin *bin, size_t *i, int32_t *dest);
+
 int	read_uint64(const t_bin *bin, const size_t i, uint64_t *dest);
 int	read_uint64_move(const t_bin *bin, size_t *i, uint64_t *dest);
 int	read_int64(const t_bin *bin, const size_t i, int64_t *dest);
 int	read_int64_move(const t_bin *bin, size_t *i, int64_t *dest);
+
+int	read_uint64_little(const t_bin *bin, const size_t i, uint64_t *dest);
+int	read_uint64_move_little(const t_bin *bin, size_t *i, uint64_t *dest);
+int	read_int64_little(const t_bin *bin, const size_t i, int64_t *dest);
+int	read_int64_move_little(const t_bin *bin, size_t *i, int64_t *dest);
 
 #endif
