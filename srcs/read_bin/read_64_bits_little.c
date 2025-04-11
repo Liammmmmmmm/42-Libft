@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_64_bits_little.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madelvin <madelvin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:50:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/04/09 15:59:30 by madelvin         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:10:52 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	read_uint64_little(const t_bin *bin, const size_t i, uint64_t *dest)
 
 int	read_uint64_move_little(const t_bin *bin, size_t *i, uint64_t *dest)
 {
-	if (read_uint64(bin, *i, dest) == -1)
+	if (read_uint64_little(bin, *i, dest) == -1)
 		return (-1);
 	*i += sizeof(uint64_t);
 	return (0);
@@ -56,7 +56,7 @@ int	read_int64_little(const t_bin *bin, const size_t i, int64_t *dest)
 
 int	read_int64_move_little(const t_bin *bin, size_t *i, int64_t *dest)
 {
-	if (read_int64(bin, *i, dest) == -1)
+	if (read_int64_little(bin, *i, dest) == -1)
 		return (-1);
 	*i += sizeof(int64_t);
 	return (0);

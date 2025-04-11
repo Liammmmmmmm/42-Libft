@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_16_bits_little.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madelvin <madelvin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:50:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/04/09 15:56:48 by madelvin         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:10:57 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	read_uint16_little(const t_bin *bin, const size_t i, uint16_t *dest)
 
 int	read_uint16_move_little(const t_bin *bin, size_t *i, uint16_t *dest)
 {
-	if (read_uint16(bin, *i, dest) == -1)
+	if (read_uint16_little(bin, *i, dest) == -1)
 		return (-1);
 	*i += sizeof(uint16_t);
 	return (0);
@@ -42,7 +42,7 @@ int	read_int16_little(const t_bin *bin, const size_t i, int16_t *dest)
 
 int	read_int16_move_little(const t_bin *bin, size_t *i, int16_t *dest)
 {
-	if (read_int16(bin, *i, dest) == -1)
+	if (read_int16_little(bin, *i, dest) == -1)
 		return (-1);
 	*i += sizeof(int16_t);
 	return (0);
