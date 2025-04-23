@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/04/01 09:50:00 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/04/23 11:31:38 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,7 +258,7 @@ size_t	ft_strlen(const char *str);
  * 
  * @return The number of bytes in the string pointed to by str.
  */
-size_t	ft_sstrlen(char *str);
+size_t	ft_sstrlen(const char *str);
 
 /**
  * @brief Applies a function to each character of a string with its index.
