@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: madelvin <madelvin@student.42.fr>          +#+  +:+       +#+         #
+#    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2025/04/09 16:01:56 by madelvin         ###   ########.fr        #
+#    Updated: 2025/05/08 11:22:32 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ SRCS     = fd/ft_putchar_fd.c fd/ft_putendl_fd.c fd/ft_putnbr_fd.c fd/ft_putstr_
 		   params_to_string/params_to_string.c params_to_string/types.c params_to_string/more_types.c  \
 		   vector/vector.c  \
 		   read_bin/read_file.c read_bin/read_8_bits.c read_bin/read_16_bits.c read_bin/read_32_bits.c read_bin/read_64_bits.c \
-		   read_bin/read_16_bits_little.c read_bin/read_32_bits_little.c read_bin/read_64_bits_little.c
+		   read_bin/read_16_bits_little.c read_bin/read_32_bits_little.c read_bin/read_64_bits_little.c \
+		   utils/get_cpu_time.c
 
 # Object files directory
 OBJ_DIR  = .obj/

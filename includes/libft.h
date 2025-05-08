@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/04/23 11:31:38 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/05/08 11:21:27 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -970,5 +970,7 @@ int		vector_add(t_vector *vector, void *element);
 int		vector_realloc(t_vector *vector);
 int		vector_init(t_vector *vector, size_t element_size, size_t default_size);
 void	*at_vector(t_vector *vec, size_t i);
+
+ssize_t	get_cpu_time(void);
 
 #endif
