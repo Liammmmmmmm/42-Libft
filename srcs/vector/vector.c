@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: madelvin <madelvin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/29 09:34:21 by pabellis          #+#    #+#             */
-/*   Updated: 2025/04/01 09:30:04 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2025/03/29 09:34:21 by madelvin          #+#    #+#             */
+/*   Updated: 2025/06/02 17:24:16 by madelvin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@ int	vector_init(t_vector *vector, size_t element_size, size_t default_size)
 	vector->data = malloc(element_size * default_size);
 	if (vector->data == NULL)
 		return (-1);
+	return (0);
+}
+
+int	vector_pop(t_vector *vector, void *out_element)
+{
+	if (vector->num_elements == 0)
+		return (-1);
+	vector->num_elements--;
+	if (out_element)
+		ft_memcpy(out_element, vector->data + vector->element_size * \
+			vector->num_elements, vector->element_size);
 	return (0);
 }
 
