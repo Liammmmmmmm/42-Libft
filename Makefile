@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2025/05/08 11:22:32 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2025/06/12 16:21:29 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ ERASE    = \033[2K\r
 ERASE2   = $(ERASE)\033[F$(ERASE)
 
 # Compiler and flags
-CC       = cc
+CC       = gcc
 CFLAGS   = -Wall -Wextra -Werror -o3
 AR       = ar -rsc
 
@@ -51,7 +51,7 @@ SRCS     = fd/ft_putchar_fd.c fd/ft_putendl_fd.c fd/ft_putnbr_fd.c fd/ft_putstr_
 		   get_next_line/get_next_line.c                                                          \
 		   params_to_string/params_to_string.c params_to_string/types.c params_to_string/more_types.c  \
 		   vector/vector.c  \
-		   read_bin/read_file.c read_bin/read_8_bits.c read_bin/read_16_bits.c read_bin/read_32_bits.c read_bin/read_64_bits.c \
+		   read_bin/read_file.c read_bin/bin_utils.c read_bin/read_8_bits.c read_bin/read_16_bits.c read_bin/read_32_bits.c read_bin/read_64_bits.c \
 		   read_bin/read_16_bits_little.c read_bin/read_32_bits_little.c read_bin/read_64_bits_little.c \
 		   utils/get_cpu_time.c
 
