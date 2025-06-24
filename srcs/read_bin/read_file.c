@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 15:41:04 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/04/01 10:31:51 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/06/24 16:59:02 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	close_free(int fd, char *str, int ret)
 	return (ret);
 }
 
-int	read_bin_file(t_bin *bin, char *filename)
+int	read_bin_file(t_bin *bin, const char *filename)
 {
 	int			fd;
 	t_vector	vec;
