@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: madelvin <madelvin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 09:34:21 by madelvin          #+#    #+#             */
-/*   Updated: 2025/06/02 17:24:16 by madelvin         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:43:19 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	vector_realloc(t_vector *vector)
 {
 	void	*new_data;
 
-	new_data = malloc(vector->element_size * vector->max_elements * 2);
+	new_data = ft_calloc(vector->element_size, vector->max_elements * 2);
 	if (new_data == NULL)
 		return (-1);
 	ft_memcpy(new_data, vector->data,
@@ -47,7 +47,7 @@ int	vector_init(t_vector *vector, size_t element_size, size_t default_size)
 	vector->element_size = element_size;
 	vector->max_elements = default_size;
 	vector->num_elements = 0;
-	vector->data = malloc(element_size * default_size);
+	vector->data = ft_calloc(element_size, default_size);
 	if (vector->data == NULL)
 		return (-1);
 	return (0);
