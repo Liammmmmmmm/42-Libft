@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 15:22:16 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/06/24 16:59:52 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/10/22 17:51:16 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "libft.h"
 # include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 # define DEFAULT_BUFFER 16384
 
@@ -64,5 +68,9 @@ int		read_int64_little(const t_bin *bin, const size_t i, int64_t *dest);
 int		read_int64_move_little(const t_bin *bin, size_t *i, int64_t *dest);
 
 t_bin	join_bin(t_bin b1, t_bin b2);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

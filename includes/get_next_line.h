@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:15:57 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/17 14:33:34 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/10/22 17:51:29 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 
 # include "libft.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief Get the next line from a file descriptor
  * 
@@ -35,5 +39,9 @@
  * @return char* The next line read from the file descriptor
  */
 char	*get_next_line(int fd);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/10/22 15:35:04 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/10/22 17:51:26 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@
 # include "params_to_string.h"
 # include "read_bin.h"
 # include "fcntl.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 # define GREY	"\033[0;30m"
 # define RED	"\033[0;31m"
@@ -974,5 +978,9 @@ void	*at_vector(t_vector *vec, size_t i);
 ssize_t	get_cpu_time(void);
 
 int		ft_abs(int i);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

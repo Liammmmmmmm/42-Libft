@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:45:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/10/22 17:33:45 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/10/22 17:49:51 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PNG_PARSER_H
 
 # include "libft.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 # define PNG_SIGNATURE 727905341920923785
 
@@ -204,5 +208,9 @@ int			handle_dynamic_huffman_block(t_bit_stream *stream,
 				t_huffman_lookup_entry *table_dist);
 
 int			parse_png(const char *filename, t_image *img);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

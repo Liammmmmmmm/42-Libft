@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 16:34:27 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/03/17 11:49:38 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/10/22 17:51:37 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include "libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * @brief A custom implementation of printf function.
@@ -146,5 +150,9 @@ int		ft_dprintf(int fd, const char *str, ...);
  * @return - The new string with your variables in it
  */
 char	*ft_sprintf(const char *str, ...);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
