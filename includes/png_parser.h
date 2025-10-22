@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:45:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/10/22 15:22:34 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/10/22 15:41:55 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_rgba
 	unsigned char	a;
 }	t_rgba;
 
-typedef struct s_tex_img
+typedef struct s_image
 {
 	uint32_t	width;
 	uint32_t	height;

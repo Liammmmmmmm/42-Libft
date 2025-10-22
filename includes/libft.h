@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/06/13 16:24:55 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/10/22 15:35:04 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -855,7 +855,7 @@ t_list	*ft_lstnew(void *content);
  * @param lst A pointer to the pointer to the first element in the list.
  * @param new A pointer to the new element to be added to the list.
  */
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new_el);
 
 /**
  * @brief Counts the number of elements in the list.
@@ -888,7 +888,7 @@ t_list	*ft_lstlast(t_list *lst);
  * @param lst A pointer to the pointer to the first element in the list.
  * @param new A pointer to the new element to be added to the list.
  */
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new_el);
 
 /**
  * @brief Frees a single list element.
