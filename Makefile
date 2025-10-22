@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/04 14:22:50 by lilefebv          #+#    #+#              #
-#    Updated: 2025/06/13 16:25:42 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2025/10/22 15:22:59 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,14 +54,17 @@ SRCS     = fd/ft_putchar_fd.c fd/ft_putendl_fd.c fd/ft_putnbr_fd.c fd/ft_putstr_
 		   read_bin/read_file.c read_bin/bin_utils.c read_bin/read_8_bits.c read_bin/read_16_bits.c read_bin/read_32_bits.c read_bin/read_64_bits.c \
 		   read_bin/read_16_bits_little.c read_bin/read_32_bits_little.c read_bin/read_64_bits_little.c \
 		   utils/get_cpu_time.c \
-		   maths/abs.c
+		   maths/abs.c \
+           parsing/png/bit_stream.c parsing/png/dynamic_huffman_block.c parsing/png/parse_png_header.c parsing/png/png_filters.c parsing/png/decode_deflate_utils.c \
+           parsing/png/generate_huffman_codes.c parsing/png/parse_png_idat.c parsing/png/read_deflate.c parsing/png/decode_table.c parsing/png/huffman_table.c parsing/png/parse_png_utils.c parsing/png/zlib_block.c \
+           parsing/png/decompress_data.c parsing/png/parse_png.c parsing/png/png_debug.c parsing/png/decompress_data_utils.c parsing/png/parse_png_chunk.c parsing/png/png_filter.c
 
 # Object files directory
 OBJ_DIR  = .obj/
 OBJ      = $(SRCS:%.c=$(OBJ_DIR)%.o)
 
 # Remake all if modified
-REMAKE   = includes/libft.h includes/ft_printf.h includes/get_next_line.h includes/read_bin.h Makefile
+REMAKE   = includes/libft.h includes/ft_printf.h includes/get_next_line.h includes/read_bin.h includes/png_parser.h Makefile
 
 # Variables for progress bar
 TOTAL_FILES		:=	$(words $(SRCS))
