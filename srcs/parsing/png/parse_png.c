@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 17:42:51 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/10/22 15:05:37 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/10/22 17:33:25 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	get_png_file(t_bin *bin, t_image *img)
 	return (0);
 }
 
-int	parse_png(char *filename, t_image *img)
+int	parse_png(const char *filename, t_image *img)
 {
 	t_bin	bin;
 

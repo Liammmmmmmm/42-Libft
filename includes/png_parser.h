@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 16:45:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2025/10/22 15:41:55 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2025/10/22 17:33:45 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,6 @@ int			handle_dynamic_huffman_block(t_bit_stream *stream,
 				t_bin_cursor *out_buf, t_huffman_lookup_entry *table_lit,
 				t_huffman_lookup_entry *table_dist);
 
-int			parse_png(char *filename, t_image *img);
+int			parse_png(const char *filename, t_image *img);
 
 #endif
